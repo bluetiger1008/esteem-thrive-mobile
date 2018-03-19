@@ -1,9 +1,26 @@
 import React from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route, Redirect, Router } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import { connect } from 'react-redux';
 
 import Login from './components/Login';
+import Children from './components/Children';
 
-const PublicRoutes = ({ history }) => {
+const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => isLoggedIn
+      ? <Component {...props} />
+      : <Redirect
+          to={{
+            pathname: '/',
+            state: { from: props.location },
+          }}
+        />}
+  />
+);
+
+const PublicRoutes = ({ history, isLoggedIn }) => {
   return (
     <Router history={history}>
       <div>
@@ -12,9 +29,16 @@ const PublicRoutes = ({ history }) => {
           path={'/'}
           component={Login}
         />
+        <RestrictedRoute
+          path="/children"
+          component={Children}
+          isLoggedIn={isLoggedIn}
+        />
       </div>
     </Router>
   );
 };
 
-export default PublicRoutes;
+export default connect(state => ({
+  isLoggedIn: state.Auth.get('idToken') !== null,
+}))(PublicRoutes);
