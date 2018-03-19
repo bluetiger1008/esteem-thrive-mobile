@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import rocketBoy from '../../assets/images/rocket_boy.jpg';
+import bgLogin from '../../assets/images/login.png';
 
 const LoginWrapper = styled.div`
   height: 100vh;
@@ -14,7 +14,9 @@ const LoginWrapper = styled.div`
   }
   .authContainer {
     height: calc(100vh - 100px);
-    background-image: url(${rocketBoy});
+    background-image: url(${bgLogin});
+    background-size: cover;
+    background-position: center;
     form {
       width: 100%;
       .form-group {
@@ -32,12 +34,19 @@ const LoginWrapper = styled.div`
         }
       }
       .btn-login {
-        background-color: #0000f3;
+        background: #41b3f0;
+        background-image: linear-gradient(to bottom, #41b3f0, #0b73c2);
+        border: none;
         width: 200px;
         height: 50px;
         color: white;
         font-size: 20px;
         margin-top: 100px;
+        outline: none;
+        &:hover {
+          background: #3cb0fd;
+          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        }
       }
     }
   }
