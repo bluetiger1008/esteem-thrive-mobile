@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { store, history } from './redux/store';
 
-import history from './utils/history';
 import PublicRoutes from './router';
 import './App.css';
 
@@ -8,7 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PublicRoutes history={history} />
+	      <Provider store={store}>
+	        <PublicRoutes history={history} />
+	      </Provider>
       </div>
     );
   }
