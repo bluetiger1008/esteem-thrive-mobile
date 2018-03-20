@@ -41,6 +41,7 @@ class Login extends Component {
 
   render() {
     const { email, password } = this.state;
+    const { loginError } = this.props;
 
     return (
       <LoginWrapper>
@@ -52,6 +53,9 @@ class Login extends Component {
             <Div direction="column" className="form-group">
               <input type="email" placeholder="Email" name="email" value={email} className="form-input" onChange={this.handleEmailChange}/>
               <input type="password" placeholder="Password" name="password" password={password} className="form-input" onChange={this.handlePasswordChange}/>
+              { loginError &&
+                <p className="form-validation">user email or password is not correct</p>
+              }
             </Div>
             <button type="submit" className="btn-login">Login</button>
           </form>
@@ -64,6 +68,7 @@ class Login extends Component {
 export default connect(
   state => ({
     isLoggedIn: state.Auth.get('idToken') !== null ? true : false,
+    ...state.Auth.toJS()
   }),
   { login }
 )(Login);

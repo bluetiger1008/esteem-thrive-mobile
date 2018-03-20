@@ -32,6 +32,10 @@ const LoginWrapper = styled.div`
           font-size: 16px;
           outline: none;
         }
+        .form-validation {
+          color: red;
+          font-size: 12px;
+        }
       }
       .btn-login {
         background: #41b3f0;
