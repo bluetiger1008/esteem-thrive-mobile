@@ -22,12 +22,11 @@ export function* loginRequest() {
         token: user.token,
         user: user
       });
+
+      yield put(push('/children'));
     } 
     catch (error) {
       yield put({ type: actions.LOGIN_ERROR });
-    }
-    finally {
-
     }
   });
 }
@@ -35,6 +34,7 @@ export function* loginRequest() {
 export function* loginSuccess() {
   yield takeEvery(actions.LOGIN_SUCCESS, function*(payload) {
     yield localStorage.setItem('id_token', payload.token);
+    yield localStorage.setItem('user_email', payload.user.email);
   });
 }
 

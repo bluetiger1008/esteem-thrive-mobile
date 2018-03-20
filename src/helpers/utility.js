@@ -7,7 +7,8 @@ export function clearToken() {
 export function getToken() {
   try {
     const idToken = localStorage.getItem('id_token');
-    return new Map({ idToken });
+    const user_email = localStorage.getItem('user_email');
+    return new Map({ idToken, user_email });
   } catch (err) {
     clearToken();
     return new Map();
