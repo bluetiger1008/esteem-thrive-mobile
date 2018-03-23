@@ -32,7 +32,6 @@ function loginAPI(authData) {
 }
 
 function listChildrenAPI() {
-	console.log(getToken().toJS());
 	return client.get('/children')
 		.then(response => response.data.children)
 		.catch(err => {
@@ -40,4 +39,35 @@ function listChildrenAPI() {
 		});
 }
 
-export { loginAPI, listChildrenAPI };
+function listAssessmentsAPI() {
+  return client.get('/questionnaires')
+    .then(response => response.data.questionnaires)
+    .catch(err => {
+      throw err
+    });
+}
+
+function listOutstandingAssessmentsAPI(selectedChild) {
+  console.log(selectedChild);
+  return client.get('/assessments/outstanding_assessments', {"child_id": 1})
+    .then(response => response.data.assessments)
+    .catch(err => {
+      throw err
+    }); 
+}
+
+function getQuestionnaireAPI(assessmentID) {
+  return client.get('/questionnaires/' + assessmentID)
+    .then(response => response.data.questionnaire)
+    .catch(err => {
+      throw err
+    });
+}
+
+export { 
+  loginAPI,
+  listChildrenAPI,
+  listAssessmentsAPI,
+  listOutstandingAssessmentsAPI,
+  getQuestionnaireAPI 
+};
