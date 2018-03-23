@@ -6,7 +6,7 @@ import ChildrenWrapper from './index.style';
 import { Div } from '../common';
 import appActions from '../../redux/app/actions';
 
-const { get_children } = appActions;
+const { get_children, select_children } = appActions;
 
 class Children extends Component {
 	constructor() {
@@ -17,9 +17,12 @@ class Children extends Component {
 		this.props.get_children();
 	}
 
+	onSelectChildren = (item) => {
+		this.props.select_children(item);
+	}
+
 	render() {
 		const { children } = this.props;
-		console.log(children);
 
 		return (
 			<ChildrenWrapper>
@@ -30,7 +33,7 @@ class Children extends Component {
 				</Div>
 				<Div className="content" direction="column" alignItems="center" justifyContent="flex-start">
 					{ children.map((item, index) =>
-						<button className="btn-notify" key={index}>
+						<button className="btn-notify" key={index} onClick={this.onSelectChildren.bind(undefined, item)}>
 							{ item.name }
 						</button>
 					)}
@@ -48,5 +51,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { get_children }
+  { get_children, select_children }
 )(Children);
