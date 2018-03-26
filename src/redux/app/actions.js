@@ -19,10 +19,11 @@ const appActons = {
   GET_QUESTIONNAIRES_FAIL: 'GET_QUESTIONNAIRES_FAIL',
 
   SELECT_ANSWER: 'SELECT_ANSWER',
+  PREVIOUS_QUESTION: 'PREVIOUS_QUESTION',
 
   select_children: ( children ) => ({
     type: appActons.SELECT_CHILDREN,
-    payload: children  
+    children  
   }),
   get_children: () => ({
     type: appActons.GET_CHILDREN,
@@ -36,6 +37,9 @@ const appActons = {
   }),
   select_answer: () => ({
     type: appActons.SELECT_ANSWER
+  }),
+  go_previous_question: () => ({
+    type: appActons.PREVIOUS_QUESTION
   })
 };
 

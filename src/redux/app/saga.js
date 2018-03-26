@@ -3,7 +3,13 @@ import { push } from 'react-router-redux';
 import axios from 'axios';
 
 import { clearToken } from '../../helpers/utility';
-import { listChildrenAPI, listAssessmentsAPI, getQuestionnaireAPI, listOutstandingAssessmentsAPI } from '../../helpers/apis';
+import { 
+  listChildrenAPI, 
+  listAllChildrenAssessments,
+  listAssessmentsAPI, 
+  getQuestionnaireAPI, 
+  listOutstandingAssessmentsAPI } from '../../helpers/apis';
+
 import actions from './actions';
 
 export function* getChildren() {
@@ -11,7 +17,7 @@ export function* getChildren() {
     let children;
     
     try {
-      children = yield call(listChildrenAPI);
+      children = yield call(listAllChildrenAssessments);
 
       yield put({
         type: actions.GET_CHILDREN_SUCCESS,
@@ -49,24 +55,7 @@ export function* getAssessments() {
 
 export function* selectChildren() {
   yield takeEvery('SELECT_CHILDREN', function*(payload) {
-    let outstanding_assessments;
-
-    try {
-      outstanding_assessments = yield call(listOutstandingAssessmentsAPI, payload.selectedChildren);
-      
-      yield put({
-        type: actions.GET_OUTSTANDING_ASSESSMENTS_SUCCESS,
-        assessments: outstanding_assessments
-      });
-
-      yield put(push('/assessments'));
-    }
-    catch (error) {
-      yield put({
-        type: actions.GET_OUTSTANDING_ASSESSMENTS_FAILED
-      });
-    }
-    
+    yield put(push('/assessments'));
   });
 }
 
