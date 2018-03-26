@@ -35,6 +35,7 @@ class Children extends Component {
 					{ children.map((item, index) =>
 						<button className="btn-notify" key={index} onClick={this.onSelectChildren.bind(undefined, item)}>
 							{ item.name }
+							<p className="due-notification">{item.outstanding_assessments_size}</p>
 						</button>
 					)}
 					{/* <button className="btn-notify">
