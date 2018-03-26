@@ -39,6 +39,16 @@ function listChildrenAPI() {
 		});
 }
 
+function listAllChildrenAssessments() {
+  return client.get('/assessments/outstanding_assessments')
+    .then(response => {
+      return response.data.children;
+    })
+    .catch(err => {
+      throw err
+    }); 
+}
+
 function listAssessmentsAPI() {
   return client.get('/questionnaires')
     .then(response => response.data.questionnaires)
@@ -49,7 +59,7 @@ function listAssessmentsAPI() {
 
 function listOutstandingAssessmentsAPI(selectedChild) {
   console.log(selectedChild);
-  return client.get('/assessments/outstanding_assessments', {"child_id": 1})
+  return client.get('/assessments/outstanding_assessments', {params: { child_id: selectedChild.id}})
     .then(response => response.data.assessments)
     .catch(err => {
       throw err
@@ -67,6 +77,7 @@ function getQuestionnaireAPI(assessmentID) {
 export { 
   loginAPI,
   listChildrenAPI,
+  listAllChildrenAssessments,
   listAssessmentsAPI,
   listOutstandingAssessmentsAPI,
   getQuestionnaireAPI 
