@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import Login from './components/Login';
 import Children from './components/Children';
+import Assessments from './components/Assessments';
+import Questionnaires from './components/Questionnaires';
 
 const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
   <Route
@@ -32,6 +34,16 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
         <RestrictedRoute
           path="/children"
           component={Children}
+          isLoggedIn={isLoggedIn}
+        />
+        <RestrictedRoute
+          path="/assessments"
+          component={Assessments}
+          isLoggedIn={isLoggedIn}
+        />
+        <RestrictedRoute
+          path="/questionnaires"
+          component={Questionnaires}
           isLoggedIn={isLoggedIn}
         />
       </div>

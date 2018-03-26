@@ -26,3 +26,37 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.startModal {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  transform: translateY(-50%);
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 10px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+.startModal .modal-header {
+  height: 50px;
+  background-color: #24293c;
+  color: white;
+  padding: 0 20px;
+}
+.startModal .modal-content {
+  padding: 0 20px;
+}
+.startModal .modal-footer {
+  height: 50px;
+  background-color: #12d672;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.startModal .modal-footer p {
+  color: white;
+}
