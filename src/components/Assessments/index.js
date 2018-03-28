@@ -23,7 +23,7 @@ class Assessments extends Component {
 		return (
 			<AssessmentsWrapper>
 				<Div className="header" direction="column" justifyContent="center" alignItems="center">
-					<p>Ozzie Miller</p>
+					<p>{selectedChildren.name}</p>
 					<img src={logo} alt="logo" className="logo"/>
 				</Div>
 				<Div className="content">
