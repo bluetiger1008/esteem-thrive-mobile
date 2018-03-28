@@ -74,11 +74,23 @@ function getQuestionnaireAPI(assessmentID) {
     });
 }
 
+function createAssessmentAPI(assessmentData) {
+  return client.post('/assessments', assessmentData )
+    .then(response => {
+      console.log(response);
+      return response;
+    })
+    .catch(err => {
+      throw err
+    });
+}
+
 export { 
   loginAPI,
   listChildrenAPI,
   listAllChildrenAssessments,
   listAssessmentsAPI,
   listOutstandingAssessmentsAPI,
-  getQuestionnaireAPI 
+  getQuestionnaireAPI,
+  createAssessmentAPI
 };
