@@ -8,7 +8,8 @@ import {
   listAllChildrenAssessments,
   listAssessmentsAPI, 
   getQuestionnaireAPI, 
-  listOutstandingAssessmentsAPI } from '../../helpers/apis';
+  listOutstandingAssessmentsAPI,
+  createAssessmentAPI } from '../../helpers/apis';
 
 import actions from './actions';
 
@@ -81,11 +82,37 @@ export function* selectAssessment() {
   });
 }
 
+export function *completedQuestionnaires() {
+  yield takeEvery('COMPLETED_QUESTIONNAIRES', function*(payload) {
+    console.log(payload.assessmentData);
+
+    let createAssessment;
+
+    try {
+      createAssessment = yield call(createAssessmentAPI, payload.assessmentData);
+
+      yield put(push('/questionnaires/completed'));  
+    }
+    catch(error) {
+      
+    }
+    
+  });
+}
+
+export function *selectLastAnswer() {
+  yield takeEvery('SELECT_LAST_ANSWER', function*(payload) {
+    yield put(push('/questionnaires/completed'));  
+  });
+}
+
 export default function* rootSaga() {
   yield all([
     fork(getChildren),
     fork(getAssessments),
     fork(selectChildren),
-    fork(selectAssessment)
+    fork(selectAssessment),
+    fork(selectLastAnswer),
+    fork(completedQuestionnaires)
   ]);
 }
