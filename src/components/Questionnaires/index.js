@@ -3,33 +3,13 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import ProgressBar from './progressBar';
 import QuestionnairesWrapper from './index.style';
 import appActions from '../../redux/app/actions';
 
-const { select_answer, go_previous_question } = appActions;
+const { select_answer, select_last_answer, go_previous_question, completed_questionnaires } = appActions;
 
 Modal.setAppElement('#root');
-
-const ProgressBar = styled.div`
-	width: 200px;
-	height: 20px;
-	background-color: white;
-	border-radius: 20px;
-	overflow: hidden;
-	.current-progress {
-		width: ${props => (props.percentage / props.questionLength) * 100}%;
-		min-width: 40px;
-		height: 20px;
-		background-color: #0089ff;
-		border-radius: 20px;
-		text-align: center;
-		p {
-			margin: 0;
-			font-size: 0.8em;
-			line-height: 20px;
-		}
-	}
-`;
 
 class Questionnaires extends Component {
 	constructor () {
@@ -55,19 +35,23 @@ class Questionnaires extends Component {
     this.setState({ showModal: false });
   }
 
-  renderProgressBar(percentage, questionLength) {
-  	return (
-  		<ProgressBar percentage={percentage>1 ? percentage : 1} questionLength={questionLength}>
-  			<div className="current-progress">
-  				<p>{percentage}/{questionLength}</p>
-  			</div>
-  		</ProgressBar>
-  	);
-  }
+  onSelectAnswer = (question_response, question) => e => {
+  	console.log(question_response, question);
+  	const { selectedChildren, questionnaire_responses, selectedQuestionnaireID } = this.props;
 
-  onSelectAnswer = (response) => e => {
-  	console.log(response);
-  	this.props.select_answer();
+  	if(this.props.current_questionnaire_step === this.props.questionnaires.questions.length) {
+  		// let assessmentData = {
+  		// 	child_id: selectedChildren.id,
+  		// 	questionnaire_id: selectedQuestionnaireID,
+  		// 	questionnaire_responses: questionnaire_responses
+  		// };
+
+  		// console.log('assessment', assessmentData);
+			// this.props.completed_questionnaires(assessmentData);
+			this.props.select_last_answer(question_response, question);
+  	} else {
+  		this.props.select_answer(question_response, question);
+  	}
   }
 
   previousQuestion = () => {
@@ -100,7 +84,7 @@ class Questionnaires extends Component {
         		<div>
 	        		<div className="header">
 			        	<p>{questionnaires.title}</p>
-			        	{ this.renderProgressBar(current_questionnaire_step, questionnaires.questions.length) }
+								<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
 			        </div>
 
 							<div className="questionnaire-content">
@@ -110,7 +94,7 @@ class Questionnaires extends Component {
 										{
 											questionnaires.questions[current_questionnaire_step - 1].question_responses.map((response, j) => {
 												return (
-													<li key={j} onClick={this.onSelectAnswer(response)}><p>{response.name}</p></li>
+													<li key={j} onClick={this.onSelectAnswer(response, questionnaires.questions[current_questionnaire_step-1])}><p>{response.name}</p></li>
 												);
 											})
 										}
@@ -136,5 +120,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { select_answer, go_previous_question }
+  { select_answer, select_last_answer, go_previous_question, completed_questionnaires }
 )(Questionnaires);
