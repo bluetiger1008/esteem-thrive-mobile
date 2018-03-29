@@ -3,20 +3,56 @@ import { connect } from 'react-redux';
 
 import logo from '../../assets/images/logo_black.png';
 import { Div } from '../common';
+import ProgressBar from './progressBar';
 import CompletedQuestionnaireWrapper from './completed.style';
 
 class CompletedQuestionnaire extends Component {
 	render() {
-		const { selectedChildren } = this.props;
+		const { questionnaires, selectedChildren, current_questionnaire_step, questionnaire_responses } = this.props;
 
 		return (
 			<CompletedQuestionnaireWrapper>
-				<Div className="header" direction="column" justifyContent="center" alignItems="center">
-					<p>{selectedChildren.name}</p>
-					<img src={logo} alt="logo" className="logo"/>
+				<div className="header">
+					<p>{questionnaires.title}</p>
+					<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
+				</div>
+				<Div className="content" direction="column">
+					<p>You've answered all the questions in this questionnaire <br/>
+					You can review your answers below, and submit them with the "Submit Answers" button</p>
+					<div className="response-table">
+						<Div className="tb-header">
+							<div className="th pt-question">
+								Question
+							</div>
+							<div className="th pt-response">
+								Response
+							</div>
+						</Div>
+						<div className="tb-body">
+							{ 
+								questionnaire_responses.names.map((item, idx) => {
+									return (
+										<Div key={idx} className="td-row">
+											<div className="td pt-question">
+												{item.question_title}
+											</div>
+											<div className="td pt-response">
+												{item.question_response_name}
+											</div>
+										</Div>
+									);
+								})
+							}
+						</div>
+					</div>
 				</Div>
-				<Div className="content">
-					<h1>Completed Questionnaires</h1>
+				<Div className="footer">
+					<button className="btn-reset">
+						Reset Questionnaire
+					</button>
+					<button className="btn-submit">
+						Submit Responses
+					</button>
 				</Div>
 			</CompletedQuestionnaireWrapper>
 		);
