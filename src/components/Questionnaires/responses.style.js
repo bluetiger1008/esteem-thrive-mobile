@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CompletedQuestionnaireWrapper = styled.div`
+const QuestionResponsesWrapper = styled.div`
 	.header {
 		height: 50px;
 		background-color: #24293c;
@@ -19,6 +19,7 @@ const CompletedQuestionnaireWrapper = styled.div`
 			width: 100%;
 			.pt-question {
 				width: 60%;
+				padding-right: 10px;
 			}
 			.pt-response {
 				width: 40%;
@@ -58,4 +59,4 @@ const CompletedQuestionnaireWrapper = styled.div`
 	}
 `;
 
-export default CompletedQuestionnaireWrapper;
+export default QuestionResponsesWrapper;

@@ -90,7 +90,7 @@ export function *completedQuestionnaires() {
 
     try {
       createAssessment = yield call(createAssessmentAPI, payload.assessmentData);
-
+      console.log('created assessment');
       yield put(push('/questionnaires/completed'));  
     }
     catch(error) {
@@ -102,7 +102,7 @@ export function *completedQuestionnaires() {
 
 export function *selectLastAnswer() {
   yield takeEvery('SELECT_LAST_ANSWER', function*(payload) {
-    yield put(push('/questionnaires/completed'));  
+    yield put(push('/questionnaires/responses'));  
   });
 }
 

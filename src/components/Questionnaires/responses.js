@@ -4,14 +4,34 @@ import { connect } from 'react-redux';
 import logo from '../../assets/images/logo_black.png';
 import { Div } from '../common';
 import ProgressBar from './progressBar';
-import CompletedQuestionnaireWrapper from './completed.style';
+import QuestionResponsesWrapper from './responses.style';
+import appActions from '../../redux/app/actions';
 
-class CompletedQuestionnaire extends Component {
+const { completed_questionnaires } = appActions;
+
+class QuestionResponses extends Component {
+	resetQuestionnaire = () => {
+		console.log('reset questionnaire');
+	}
+
+	submitResponses = () => {
+		const { selectedChildren, questionnaire_responses, selectedQuestionnaireID } = this.props;
+
+		let assessmentData = {
+			child_id: selectedChildren.id,
+			questionnaire_id: selectedQuestionnaireID,
+			questionnaire_responses: questionnaire_responses.ids
+		};
+
+		console.log('submit responses', assessmentData);
+		this.props.completed_questionnaires(assessmentData);
+	}
+
 	render() {
 		const { questionnaires, selectedChildren, current_questionnaire_step, questionnaire_responses } = this.props;
 
 		return (
-			<CompletedQuestionnaireWrapper>
+			<QuestionResponsesWrapper>
 				<div className="header">
 					<p>{questionnaires.title}</p>
 					<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
@@ -47,14 +67,14 @@ class CompletedQuestionnaire extends Component {
 					</div>
 				</Div>
 				<Div className="footer">
-					<button className="btn-reset">
+					<button className="btn-reset" onClick={this.resetQuestionnaire}>
 						Reset Questionnaire
 					</button>
-					<button className="btn-submit">
+					<button className="btn-submit" onClick={this.submitResponses}>
 						Submit Responses
 					</button>
 				</Div>
-			</CompletedQuestionnaireWrapper>
+			</QuestionResponsesWrapper>
 		);
 	}
 }
@@ -63,5 +83,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { }
-)(CompletedQuestionnaire);
+  { completed_questionnaires }
+)(QuestionResponses);
