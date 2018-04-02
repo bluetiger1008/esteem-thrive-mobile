@@ -98,7 +98,12 @@ export function *completedQuestionnaires() {
 
     try {
       createAssessment = yield call(createAssessmentAPI, payload.assessmentData);
-      console.log('created assessment');
+      
+      yield put({
+        type: actions.COMPLETED_QUESTIONNAIRES_SUCCESS,
+        assessment: payload.assessmentData
+      });
+
       yield put(push('/questionnaires/completed'));  
     }
     catch(error) {
@@ -114,6 +119,12 @@ export function *selectLastAnswer() {
   });
 }
 
+export function *continueAssessment() {
+  yield takeEvery('CONTINUE_ASSESSMENTS', function*() {
+    yield put(push('/assessments'));  
+  }); 
+}
+
 export default function* rootSaga() {
   yield all([
     fork(getChildren),
@@ -122,6 +133,7 @@ export default function* rootSaga() {
     fork(selectAssessment),
     fork(selectLastAnswer),
     fork(resetQuestionnaires),
-    fork(completedQuestionnaires)
+    fork(completedQuestionnaires),
+    fork(continueAssessment)
   ]);
 }
