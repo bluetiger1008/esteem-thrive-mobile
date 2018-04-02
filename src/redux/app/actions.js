@@ -21,22 +21,28 @@ const appActons = {
   SELECT_ANSWER: 'SELECT_ANSWER',
   SELECT_LAST_ANSWER: 'SELECT_LAST_ANSWER',
   PREVIOUS_QUESTION: 'PREVIOUS_QUESTION',
+
+  RESET_QUESTIONNAIRES: 'RESET_QUESTIONNAIRES',
   COMPLETED_QUESTIONNAIRES: 'COMPLETED_QUESTIONNAIRES',
   
   select_children: ( children ) => ({
     type: appActons.SELECT_CHILDREN,
     children  
   }),
+
   get_children: () => ({
     type: appActons.GET_CHILDREN,
   }),
+
   get_assessments: () => ({
   	type: appActons.GET_ASSESSMENTS_REQUEST
   }),
+
   select_assessment: (assessment) => ({
     type: appActons.SELECT_ASSESSMENT,
     assessment
   }),
+
   select_answer: (question_response, question) => ({
     type: appActons.SELECT_ANSWER,
     payload: {
@@ -44,6 +50,7 @@ const appActons = {
       question
     }
   }),
+
   select_last_answer: (question_response, question) => ({
     type: appActons.SELECT_LAST_ANSWER,
     payload: {
@@ -51,9 +58,15 @@ const appActons = {
       question
     }
   }),
+
   go_previous_question: () => ({
     type: appActons.PREVIOUS_QUESTION
   }),
+
+  reset_questionnaires: () => ({
+    type: appActons.RESET_QUESTIONNAIRES
+  }),
+
   completed_questionnaires: (assessmentData) => ({
     type: appActons.COMPLETED_QUESTIONNAIRES,
     assessmentData

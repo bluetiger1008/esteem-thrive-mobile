@@ -5,7 +5,7 @@ import { push } from 'react-router-redux';
 const initState = new Map({
   children: [],
   selectedChildren: {
-    "id": 1,
+    "id": 89,
     "name": "João Pedro",
     "outstanding_assessments_size": 9,
     "questionnaires": [
@@ -86,6 +86,11 @@ export default function appReducer(state = initState, action) {
     case actions.PREVIOUS_QUESTION:
       let prevStep = state.toJS().current_questionnaire_step - 1;
       return state.set('current_questionnaire_step', prevStep);
+
+    case actions.RESET_QUESTIONNAIRES:
+      return state
+        .set('questionnaire_responses', { ids: [], names: []})
+        .set('current_questionnaire_step', 1);
     default:
       return state;
   }

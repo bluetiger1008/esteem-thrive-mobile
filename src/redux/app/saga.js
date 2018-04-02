@@ -82,6 +82,14 @@ export function* selectAssessment() {
   });
 }
 
+export function *resetQuestionnaires() {
+  yield takeEvery('RESET_QUESTIONNAIRES', function *(payload) {
+    console.log('reset questionnaires');
+
+    yield put(push('/questionnaires'));
+  });
+}
+
 export function *completedQuestionnaires() {
   yield takeEvery('COMPLETED_QUESTIONNAIRES', function*(payload) {
     console.log(payload.assessmentData);
@@ -113,6 +121,7 @@ export default function* rootSaga() {
     fork(selectChildren),
     fork(selectAssessment),
     fork(selectLastAnswer),
+    fork(resetQuestionnaires),
     fork(completedQuestionnaires)
   ]);
 }
