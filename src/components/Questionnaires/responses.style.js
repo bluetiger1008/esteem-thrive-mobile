@@ -1,22 +1,12 @@
 import styled from 'styled-components';
 
 const QuestionResponsesWrapper = styled.div`
-	.header {
-		height: 50px;
-		background-color: #24293c;
-		padding: 10px 20px;
-		text-align: left;
-		p {
-			color: white;
-			margin-top: 0;
-			margin-bottom: 5px;
-		}
-	}
 	.content {
 		padding: 0 20px;
 		text-align: left;
 		.response-table {
 			width: 100%;
+			padding-bottom: 50px;
 			.pt-question {
 				width: 60%;
 				padding-right: 10px;

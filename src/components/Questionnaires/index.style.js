@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 
 const QuestionnairesWrapper = styled.div`
-	.header {
-		height: 50px;
-		background-color: #24293c;
-		padding: 10px 20px;
-		text-align: left;
-		p {
-			color: white;
-			margin-top: 0;
-			margin-bottom: 5px;
-		}
-	}
 	.questionnaire-content {
 		height: calc(100vh - 70px);
 		position: relative;
