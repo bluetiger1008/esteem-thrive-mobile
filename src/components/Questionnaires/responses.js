@@ -6,8 +6,9 @@ import { Div } from '../common';
 import ProgressBar from './progressBar';
 import QuestionResponsesWrapper from './responses.style';
 import appActions from '../../redux/app/actions';
+import { QuestionnaireHeader } from '../common';
 
-const { completed_questionnaires } = appActions;
+const { completed_questionnaires, reset_questionnaires } = appActions;
 
 class QuestionResponses extends Component {
 	resetQuestionnaire = () => {
@@ -27,15 +28,25 @@ class QuestionResponses extends Component {
 		this.props.completed_questionnaires(assessmentData);
 	}
 
+	resetQuestionnaire = () => {
+		console.log('reset questionnaires');
+		this.props.reset_questionnaires();
+	}
+
 	render() {
 		const { questionnaires, selectedChildren, current_questionnaire_step, questionnaire_responses } = this.props;
 
 		return (
 			<QuestionResponsesWrapper>
-				<div className="header">
-					<p>{questionnaires.title}</p>
-					<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
-				</div>
+				<QuestionnaireHeader>
+					<div className="questionnaire-info">
+	        	<p>{questionnaires.title}</p>
+						<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
+          </div>
+          <div className="questionnaire-image">
+            <img src={questionnaires.image} />
+          </div>
+				</QuestionnaireHeader>
 				<Div className="content" direction="column">
 					<p>You've answered all the questions in this questionnaire <br/>
 					You can review your answers below, and submit them with the "Submit Answers" button</p>
@@ -83,5 +94,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { completed_questionnaires }
+  { completed_questionnaires, reset_questionnaires }
 )(QuestionResponses);

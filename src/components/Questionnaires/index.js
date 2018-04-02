@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import ProgressBar from './progressBar';
 import QuestionnairesWrapper from './index.style';
 import appActions from '../../redux/app/actions';
+import { QuestionnaireHeader } from '../common';
 
 const { select_answer, select_last_answer, go_previous_question, completed_questionnaires } = appActions;
 
@@ -82,10 +83,15 @@ class Questionnaires extends Component {
         { questionnaires.questions && 
         	(
         		<div>
-	        		<div className="header">
-			        	<p>{questionnaires.title}</p>
-								<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
-			        </div>
+	        		<QuestionnaireHeader>
+                <div className="questionnaire-info">
+  			        	<p>{questionnaires.title}</p>
+  								<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
+                </div>
+                <div className="questionnaire-image">
+                  <img src={questionnaires.image} />
+                </div>
+			        </QuestionnaireHeader>
 
 							<div className="questionnaire-content">
 								<div className="question">
