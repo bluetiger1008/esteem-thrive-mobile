@@ -24,7 +24,10 @@ const appActons = {
 
   RESET_QUESTIONNAIRES: 'RESET_QUESTIONNAIRES',
   COMPLETED_QUESTIONNAIRES: 'COMPLETED_QUESTIONNAIRES',
+  COMPLETED_QUESTIONNAIRES_SUCCESS: 'COMPLETED_QUESTIONNAIRES_SUCCESS',
   
+  CONTINUE_ASSESSMENTS: 'CONTINUE_ASSESSMENTS',
+
   select_children: ( children ) => ({
     type: appActons.SELECT_CHILDREN,
     children  
@@ -70,6 +73,10 @@ const appActons = {
   completed_questionnaires: (assessmentData) => ({
     type: appActons.COMPLETED_QUESTIONNAIRES,
     assessmentData
+  }),
+
+  continue_assessments: () => ({
+    type: appActons.CONTINUE_ASSESSMENTS
   })
 };
 
