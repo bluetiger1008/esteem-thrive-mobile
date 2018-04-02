@@ -42,6 +42,20 @@ const AssessmentsWrapper = styled.div`
 					height: 60px;
 					background-color: #ffffff73;
 					margin-right: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					img {
+						max-width: 80%;
+						max-height: 80%;
+					}
+				}
+				.assessment-info {
+					flex-grow: 1;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding-right: 10px;
 				}
 				&:first-child {
 					margin-top: 0;

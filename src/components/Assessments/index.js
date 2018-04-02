@@ -33,9 +33,12 @@ class Assessments extends Component {
 								return (
 									<li key={index} onClick={this.handleSelectAssessment.bind(undefined, item)}>
 										<div className="img-assessment">
-											
+											<img src={item.image} />
 										</div>
-										{item.title}
+										<div className="assessment-info">
+											<p>{item.title}</p>
+											<p>{item.time}</p>
+										</div>
 									</li>
 								);
 							})) : (
