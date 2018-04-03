@@ -3,7 +3,7 @@ import { getToken } from '../../helpers/utility';
 import actions from './actions';
 
 const initState = new Map({
-  idToken: 'secret token',
+  idToken: null,
   userEmail: '',
   loginError: false
 });
@@ -18,7 +18,7 @@ export default function authReducer(
     case actions.LOGIN_SUCCESS:
       return state
         .set('idToken', action.token)
-        .set('userEmail', action.user_email)
+        .set('userEmail', action.user.email)
         .set('loginError', false);
     case actions.LOGIN_ERROR:
       return state

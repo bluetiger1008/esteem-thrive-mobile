@@ -11,7 +11,7 @@ client.interceptors.request.use(
   config => {
     if (getToken().toJS() !== null) {
       config.headers['X-User-Token'] = getToken().toJS().idToken;
-      config.headers['X-User-Email'] = getToken().toJS().user_email;
+      config.headers['X-User-Email'] = getToken().toJS().userEmail;
     }
 
     return config;
