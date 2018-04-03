@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import QuestionnaireHeader from './questionnaireHeader';
 import QuestionnairesWrapper from './index.style';
 import appActions from '../../redux/app/actions';
+import Header from '../Header/header';
 
 const { select_answer, select_last_answer, go_previous_question, completed_questionnaires } = appActions;
 
@@ -71,6 +72,7 @@ class Questionnaires extends Component {
 	          <p>Start Questionnaire</p>
 	        </div>
         </Modal>
+        <Header/>
         { questionnaires.questions && 
         	(
         		<div>

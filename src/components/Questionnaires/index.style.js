@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const QuestionnairesWrapper = styled.div`
 	.questionnaire-content {
-		height: calc(100vh - 70px);
+		padding-bottom: 50px;
 		position: relative;
 		h3 {
 			margin-top: 0;
@@ -29,7 +29,7 @@ const QuestionnairesWrapper = styled.div`
 			padding-top: 30px;
 		}
 		.question-navigator {
-			position: absolute;
+			position: fixed;
 			bottom: 0;
 			width: 100%;
 			height: 50px;
