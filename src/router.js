@@ -8,6 +8,7 @@ import Children from './components/Children';
 import Assessments from './components/Assessments';
 import Questionnaires from './components/Questionnaires';
 import QuestionResponses from './components/Questionnaires/responses';
+import QuestionnaireEdit from './components/Questionnaires/edit';
 import QuestionnaireCompleted from './components/Questionnaires/completed';
 
 const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
@@ -47,6 +48,11 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
           exact
           path="/questionnaires"
           component={Questionnaires}
+          isLoggedIn={isLoggedIn}
+        />
+        <RestrictedRoute
+          path="/questionnaires/edit"
+          component={QuestionnaireEdit}
           isLoggedIn={isLoggedIn}
         />
         <RestrictedRoute
