@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import 'font-awesome/css/font-awesome.css';
+import FontAwesome from 'react-fontawesome';
 
 import logo from '../../assets/images/logo_black.png';
 import { Div } from '../common';
+import Header from '../Header/header';
 import QuestionnaireHeader from './questionnaireHeader';
 import QuestionResponsesWrapper from './responses.style';
 import appActions from '../../redux/app/actions';
 
-const { completed_questionnaires, reset_questionnaires } = appActions;
+const { completed_questionnaires, reset_questionnaires, edit_questionnaire } = appActions;
 
 class QuestionResponses extends Component {
-	resetQuestionnaire = () => {
-		console.log('reset questionnaire');
-	}
-
 	submitResponses = () => {
 		const { selectedChildren, questionnaire_responses, selectedQuestionnaireID } = this.props;
 
@@ -23,13 +22,15 @@ class QuestionResponses extends Component {
 			questionnaire_responses: questionnaire_responses.ids
 		};
 
-		console.log('submit responses', assessmentData);
 		this.props.completed_questionnaires(assessmentData);
 	}
 
 	resetQuestionnaire = () => {
-		console.log('reset questionnaires');
 		this.props.reset_questionnaires();
+	}
+
+	onResponseEdit = (item) => {
+		this.props.edit_questionnaire(item.questionnaire_id);
 	}
 
 	render() {
@@ -37,8 +38,9 @@ class QuestionResponses extends Component {
 
 		return (
 			<QuestionResponsesWrapper>
+				<Header />
 				<QuestionnaireHeader questionnaires={questionnaires} current_questionnaire_step={current_questionnaire_step} />
-				
+
 				<Div className="content" direction="column">
 					<p>You've answered all the questions in this questionnaire <br/>
 					You can review your answers below, and submit them with the "Submit Answers" button</p>
@@ -61,6 +63,11 @@ class QuestionResponses extends Component {
 											</div>
 											<div className="td pt-response">
 												{item.question_response_name}
+												<FontAwesome
+									        name='edit'
+									        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+									        onClick={this.onResponseEdit.bind(undefined, item)}
+									      />
 											</div>
 										</Div>
 									);
@@ -86,5 +93,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { completed_questionnaires, reset_questionnaires }
+  { completed_questionnaires, reset_questionnaires, edit_questionnaire }
 )(QuestionResponses);

@@ -13,6 +13,8 @@ const QuestionResponsesWrapper = styled.div`
 			}
 			.pt-response {
 				width: 40%;
+				display: flex;
+				justify-content: space-between;
 			}
 			.tb-header {
 				.th {
