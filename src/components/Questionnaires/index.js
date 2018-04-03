@@ -3,10 +3,9 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import ProgressBar from './progressBar';
+import QuestionnaireHeader from './questionnaireHeader';
 import QuestionnairesWrapper from './index.style';
 import appActions from '../../redux/app/actions';
-import { QuestionnaireHeader } from '../common';
 
 const { select_answer, select_last_answer, go_previous_question, completed_questionnaires } = appActions;
 
@@ -41,14 +40,6 @@ class Questionnaires extends Component {
   	const { selectedChildren, questionnaire_responses, selectedQuestionnaireID } = this.props;
 
   	if(this.props.current_questionnaire_step === this.props.questionnaires.questions.length) {
-  		// let assessmentData = {
-  		// 	child_id: selectedChildren.id,
-  		// 	questionnaire_id: selectedQuestionnaireID,
-  		// 	questionnaire_responses: questionnaire_responses
-  		// };
-
-  		// console.log('assessment', assessmentData);
-			// this.props.completed_questionnaires(assessmentData);
 			this.props.select_last_answer(question_response, question);
   	} else {
   		this.props.select_answer(question_response, question);
@@ -83,15 +74,7 @@ class Questionnaires extends Component {
         { questionnaires.questions && 
         	(
         		<div>
-	        		<QuestionnaireHeader>
-                <div className="questionnaire-info">
-  			        	<p>{questionnaires.title}</p>
-  								<ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
-                </div>
-                <div className="questionnaire-image">
-                  <img src={questionnaires.image} />
-                </div>
-			        </QuestionnaireHeader>
+	        		<QuestionnaireHeader questionnaires={questionnaires} current_questionnaire_step={current_questionnaire_step} />
 
 							<div className="questionnaire-content">
 								<div className="question">
