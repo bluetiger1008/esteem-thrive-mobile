@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 
 import logo from '../../assets/images/logo.png'
 import LoginWrapper from './login.style.js';
@@ -14,8 +15,17 @@ class Login extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      redirectToReferrer: false,
     };
+  }
+
+  componentDidMount() {
+    if (
+      this.props.isLoggedIn === true
+    ) {
+      this.setState({ redirectToReferrer: true });
+    }
   }
 
   handleEmailChange = (e) => {
@@ -27,9 +37,6 @@ class Login extends Component {
   }
 
   handleLogin = (e) => {
-    // const { login } = this.props;
-    // login();
-    // this.props.history.push('/landing');
     e.preventDefault();
     
     const { email, password } = this.state;
@@ -40,9 +47,14 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, redirectToReferrer } = this.state;
     const { loginError } = this.props;
 
+    const from = { pathname: '/children' };
+
+    if (redirectToReferrer) {
+      return <Redirect to={from} />;
+    }
     return (
       <LoginWrapper>
         <Div alignItems="center" justifyContent="center" className="header">
