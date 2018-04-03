@@ -23,6 +23,8 @@ const appActons = {
   PREVIOUS_QUESTION: 'PREVIOUS_QUESTION',
 
   RESET_QUESTIONNAIRES: 'RESET_QUESTIONNAIRES',
+  EDIT_QUESTIONNAIRE: 'EDIT_QUESTIONNAIRE',
+  CHANGE_ANSWER: 'CHANGE_ANSWER',
   COMPLETED_QUESTIONNAIRES: 'COMPLETED_QUESTIONNAIRES',
   COMPLETED_QUESTIONNAIRES_SUCCESS: 'COMPLETED_QUESTIONNAIRES_SUCCESS',
   
@@ -68,6 +70,19 @@ const appActons = {
 
   reset_questionnaires: () => ({
     type: appActons.RESET_QUESTIONNAIRES
+  }),
+
+  edit_questionnaire: (questionnaire_id) => ({
+    type: appActons.EDIT_QUESTIONNAIRE,
+    questionnaire_id
+  }),
+
+  change_answer: (answer, selectedQuestionnaire) => ({
+    type: appActons.CHANGE_ANSWER,
+    payload: {
+      answer,
+      selectedQuestionnaire
+    }
   }),
 
   completed_questionnaires: (assessmentData) => ({
