@@ -41,6 +41,15 @@ const QuestionnaireCompletedWrapper = styled.div`
         text-decoration: underline;
         margin: 10px 0;
       }
+      &.btn-switch {
+        font-size: 20px;
+        text-decoration: underline;
+        width: auto;
+        height: 50px;
+        .due-notification {
+          right: -30px;
+        }
+      }
       .due-notification {
         position: absolute;
         width: 30px;
@@ -52,6 +61,7 @@ const QuestionnaireCompletedWrapper = styled.div`
         margin: 0;
         line-height: 30px;
         border: 3px solid #fff;
+        color: white;
       }
     }
   }

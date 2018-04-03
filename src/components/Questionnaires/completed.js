@@ -8,7 +8,7 @@ import appActions from '../../redux/app/actions';
 import authActions from '../../redux/auth/actions';
 import _ from 'lodash';
 
-const { get_assessments, get_children, select_assessment, continue_assessments } = appActions;
+const { get_assessments, get_children, select_assessment, continue_assessments, select_children } = appActions;
 const { logout } = authActions;
 
 class QuestionnaireCompleted extends Component {
@@ -44,6 +44,10 @@ class QuestionnaireCompleted extends Component {
     this.props.continue_assessments();
   }
 
+  onSelectChildren = (item) => {
+    this.props.select_children(item);
+  }
+
 	render() {
 		const { selectedChildren, questionnaires, children } = this.props;
     const { remainingAssessmentNumber } = this.state;
@@ -61,6 +65,22 @@ class QuestionnaireCompleted extends Component {
             Continue
             <p className="due-notification">{remainingAssessmentNumber}</p>
           </button>
+
+          { children.map((item, index) => {
+              return (
+                <div key={index}>
+                  { item.id !== selectedChildren.id && (
+                      <button className="btn btn-switch" onClick={this.onSelectChildren.bind(undefined, item)}>
+                        { item.name }
+                        <p className="due-notification">{item.outstanding_assessments_size}</p>
+                      </button>
+                    )
+                  }
+                </div>
+              );
+            }
+          )}
+
           <button className="btn btn-logout" onClick={this.logout}>
             Log Out
           </button>
@@ -74,5 +94,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { get_assessments, get_children, select_assessment, continue_assessments, logout }
+  { get_assessments, get_children, select_children, select_assessment, continue_assessments, logout }
 )(QuestionnaireCompleted);
