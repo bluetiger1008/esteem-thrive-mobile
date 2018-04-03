@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import logo from '../../assets/images/logo_black.png';
 import QuestionnaireCompletedWrapper from './completed.style';
 import { Div } from '../common';
+import Header from '../Header/header';
+
 import appActions from '../../redux/app/actions';
 import authActions from '../../redux/auth/actions';
 import _ from 'lodash';
@@ -54,10 +56,7 @@ class QuestionnaireCompleted extends Component {
 
 		return (
 			<QuestionnaireCompletedWrapper>
-				<Div className="header" direction="column" justifyContent="center" alignItems="center">
-					<p>{selectedChildren.name}</p>
-					<img src={logo} alt="logo" className="logo"/>
-				</Div>
+        <Header />
         <Div className="content" direction="column" alignItems="center">
           <h2 className="questionnaire-title">
             <img src={questionnaires.image} />
