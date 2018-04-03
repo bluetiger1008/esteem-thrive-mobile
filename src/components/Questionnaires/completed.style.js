@@ -20,8 +20,18 @@ const QuestionnaireCompletedWrapper = styled.div`
 		}
   }
   .content {
+    padding: 0 30px;
     h2 {
       color: #888;
+      &.questionnaire-title {
+        display: flex;
+        align-items: center;
+        img {
+          max-width: 50px;
+          max-height: 50px;
+          margin-right: 10px;
+        } 
+      }
     }
     .btn {
       position: relative;
@@ -33,13 +43,13 @@ const QuestionnaireCompletedWrapper = styled.div`
         border-radius: 50px;
         color: white;
         font-size: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
       }
       &.btn-logout {
         font-size: 20px;
         color: black;
         text-decoration: underline;
-        margin: 10px 0;
+        margin-top: 50px;
       }
       &.btn-switch {
         font-size: 20px;
