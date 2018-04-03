@@ -103,6 +103,11 @@ export default function appReducer(state = initState, action) {
     case actions.COMPLETED_QUESTIONNAIRES_SUCCESS:
       _.find(state.toJS().selectedChildren.questionnaires, { id: action.assessment.questionnaire_id }).completed = true;
       return state;
+
+    case actions.CONTINUE_ASSESSMENTS:
+      return state
+        .set('current_questionnaire_step', 1);
+        
     default:
       return state;
   }
