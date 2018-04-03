@@ -37,6 +37,9 @@ const AssessmentsWrapper = styled.div`
 				color: #fff;
 				padding-left: 10px;
 				position: relative;
+				&.completed {
+					opacity: 0.5;
+				}
 				.img-assessment {
 					width: 60px;
 					height: 60px;
@@ -56,6 +59,9 @@ const AssessmentsWrapper = styled.div`
 					align-items: center;
 					justify-content: space-between;
 					padding-right: 10px;
+					.assessment-name {
+						text-align: left;
+					}
 				}
 				&:first-child {
 					margin-top: 0;
