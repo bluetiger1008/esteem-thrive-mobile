@@ -45,7 +45,16 @@ const QuestionResponsesWrapper = styled.div`
 				background-image: linear-gradient(to right, #f05b7c, #f35574, #f54e6b, #f74862, #f94159);
 			}
 			&.btn-submit {
-				background-image: linear-gradient(to right, #5bf08f, #4ce07b, #3dd067, #2cc053, #17b03f);
+				background-color: #2ebd2e;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+				span {
+					margin-right: 5px;
+				}
+				&:disabled {
+					background-color: #3a6144;
+				}
 			}
 		}
 	}

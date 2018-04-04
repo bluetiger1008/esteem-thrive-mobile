@@ -5,57 +5,17 @@ import _ from 'lodash';
 
 const initState = new Map({
   children: [],
-  selectedChildren: {
-    "id": 89,
-    "name": "João Pedro",
-    "outstanding_assessments_size": 9,
-    "questionnaires": [
-      {
-          "id": 4,
-          "title": "Emotional Assessment"
-      },
-      {
-          "id": 5,
-          "title": "Medication Side Effects"
-      },
-      {
-          "id": 14,
-          "title": "Vanderbilt - Parent"
-      },
-      {
-          "id": 17,
-          "title": "Sleep Profile"
-      },
-      {
-          "id": 1,
-          "title": "Self Sufficiency"
-      },
-      {
-          "id": 2,
-          "title": "Self Control"
-      },
-      {
-          "id": 3,
-          "title": "Academic Performance"
-      },
-      {
-          "id": 25,
-          "title": "DESSA - Parent"
-      },
-      {
-          "id": 20,
-          "title": "Sleep ADL"
-      }
-    ]},
+  selectedChildren: null,
   assessments: [],
   selectedQuestionnaireID: null,
-  questionnaires: [],
+  questionnaires: null,
   selectedQuestionnaire: {},
   current_questionnaire_step: 1,
   questionnaire_responses: {
     ids: [],
     names: []
-  }
+  },
+  responseSubmitting: false
 });
 
 export default function appReducer(state = initState, action) {
@@ -110,9 +70,12 @@ export default function appReducer(state = initState, action) {
       _.find(state.toJS().questionnaire_responses.names, { questionnaire_id: action.payload.selectedQuestionnaire.id}).question_response_name = action.payload.answer.name;
       return state;
 
+    case actions.COMPLETED_QUESTIONNAIRES:
+      return state.set('responseSubmitting', true);
+
     case actions.COMPLETED_QUESTIONNAIRES_SUCCESS:
       _.find(state.toJS().selectedChildren.questionnaires, { id: action.assessment.questionnaire_id }).completed = true;
-      return state;
+      return state.set('responseSubmitting', false);
 
     case actions.CONTINUE_ASSESSMENTS:
       return state
