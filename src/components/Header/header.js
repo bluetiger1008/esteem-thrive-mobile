@@ -21,7 +21,12 @@ class Header extends Component {
 			        size='2x'
 			      />
           </Link>
-					<p>{selectedChildren.name}</p>
+          { selectedChildren ? (
+          	<p>{selectedChildren.name}</p>
+          ): (
+          	<p style={{ fontSize: '0.9em' }}>Children Not Selected</p>
+          )}
+					
 					<img src={logo} alt="logo" className="logo"/>
 				</Div>
 			</HeaderWrapper>
