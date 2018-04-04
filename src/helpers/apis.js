@@ -29,6 +29,16 @@ function loginAPI(authData) {
     });
 }
 
+function logoutAPI() {
+  return client.delete('/sessions' )
+    .then(response => {
+      return response;
+    })
+    .catch(err => {
+      throw err
+    }); 
+}
+
 function listChildrenAPI() {
 	return client.get('/children')
 		.then(response => response.data.children)
@@ -85,6 +95,7 @@ function createAssessmentAPI(assessmentData) {
 
 export { 
   loginAPI,
+  logoutAPI,
   listChildrenAPI,
   listAllChildrenAssessments,
   listAssessmentsAPI,

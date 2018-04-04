@@ -2,7 +2,7 @@ import { all, takeEvery, takeLatest, put, fork, call } from 'redux-saga/effects'
 import { push } from 'react-router-redux';
 
 import { clearToken } from '../../helpers/utility';
-import { loginAPI } from '../../helpers/apis';
+import { loginAPI, logoutAPI } from '../../helpers/apis';
 import actions from './actions';
 
 export function* loginRequest() {
@@ -40,11 +40,20 @@ export function* loginError() {
 }
 
 export function* logout() {
-  yield takeEvery(actions.LOGOUT, function*() {
-    clearToken();
-    yield put(push('/'));
+  yield takeEvery(actions.LOGOUT, function*() {   
+    let user;
+    
+    try {
+      user = yield call(logoutAPI);
+      clearToken();
+      yield put(push('/'));
+    } 
+    catch (error) {
+      
+    }
   });
 }
+
 export default function* rootSaga() {
   yield all([
     fork(loginRequest),
