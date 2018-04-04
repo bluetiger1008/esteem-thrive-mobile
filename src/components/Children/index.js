@@ -9,10 +9,6 @@ import appActions from '../../redux/app/actions';
 const { get_children, select_children } = appActions;
 
 class Children extends Component {
-	constructor() {
-		super();
-	}
-
 	componentDidMount() {
 		this.props.get_children();
 	}

@@ -1,6 +1,5 @@
-import { Map, merge } from 'immutable';
+import { Map } from 'immutable';
 import actions from './actions';
-import { push } from 'react-router-redux';
 import _ from 'lodash';
 
 const initState = new Map({

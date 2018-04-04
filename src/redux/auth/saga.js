@@ -1,12 +1,9 @@
 import { all, takeEvery, takeLatest, put, fork, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import axios from 'axios';
 
 import { clearToken } from '../../helpers/utility';
 import { loginAPI } from '../../helpers/apis';
 import actions from './actions';
-
-const fakeApiCall = true; // auth0 or express JWT
 
 export function* loginRequest() {
   yield takeLatest('LOGIN_REQUEST', function*(payload) {

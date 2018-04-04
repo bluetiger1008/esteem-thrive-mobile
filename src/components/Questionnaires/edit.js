@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import QuestionnaireHeader from './questionnaireHeader';
 import EditWrapper from './edit.style';
 import appActions from '../../redux/app/actions';
 import Header from '../Header/header';

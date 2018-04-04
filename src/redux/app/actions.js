@@ -1,5 +1,3 @@
-import { push } from 'react-router-redux';
-
 const appActons = {
   SELECT_CHILDREN: 'SELECT_CHILDREN',
   GET_CHILDREN: 'GET_CHILDREN',

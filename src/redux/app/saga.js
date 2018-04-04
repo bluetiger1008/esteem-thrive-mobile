@@ -1,14 +1,10 @@
-import { all, takeEvery, takeLatest, put, fork, call } from 'redux-saga/effects';
+import { all, takeEvery, put, fork, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import axios from 'axios';
 
-import { clearToken } from '../../helpers/utility';
 import { 
-  listChildrenAPI, 
   listAllChildrenAssessments,
   listAssessmentsAPI, 
   getQuestionnaireAPI, 
-  listOutstandingAssessmentsAPI,
   createAssessmentAPI } from '../../helpers/apis';
 
 import actions from './actions';
@@ -102,10 +98,7 @@ export function *changeAnswer() {
 
 export function *completedQuestionnaires() {
   yield takeEvery('COMPLETED_QUESTIONNAIRES', function*(payload) {
-    console.log(payload.assessmentData);
-
     let createAssessment;
-
     try {
       createAssessment = yield call(createAssessmentAPI, payload.assessmentData);
       

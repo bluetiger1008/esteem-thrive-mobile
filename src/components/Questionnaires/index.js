@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
 import QuestionnaireHeader from './questionnaireHeader';
 import QuestionnairesWrapper from './index.style';
@@ -38,7 +37,6 @@ class Questionnaires extends Component {
 
   onSelectAnswer = (question_response, question) => e => {
   	console.log(question_response, question);
-  	const { selectedChildren, questionnaire_responses, selectedQuestionnaireID } = this.props;
 
   	if(this.props.current_questionnaire_step === this.props.questionnaires.questions.length) {
 			this.props.select_last_answer(question_response, question);
@@ -52,9 +50,8 @@ class Questionnaires extends Component {
   }
 
 	render() {
-		const { questionnaires, selectedChildren, current_questionnaire_step } = this.props;
-		const { percentage } = this.state;
-
+		const { questionnaires, current_questionnaire_step } = this.props;
+		
 		return (
 			<QuestionnairesWrapper>
         <Header/>

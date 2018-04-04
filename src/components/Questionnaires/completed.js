@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../../assets/images/logo_black.png';
 import QuestionnaireCompletedWrapper from './completed.style';
 import { Div } from '../common';
 import Header from '../Header/header';
@@ -59,7 +58,7 @@ class QuestionnaireCompleted extends Component {
         <Header />
         <Div className="content" direction="column" alignItems="center">
           <h2 className="questionnaire-title">
-            <img src={questionnaires.image} />
+            <img src={questionnaires.image} alt="image"/>
             {questionnaires.title}
           </h2>
           <h2>Completed</h2>

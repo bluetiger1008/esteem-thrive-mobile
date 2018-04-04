@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { getToken } from './utility';
 
-const apiURL = 'https://esteem-thrive-api.herokuapp.com/v1/';
-
 const client = axios.create({
 	baseURL: 'https://esteem-thrive-api.herokuapp.com/v1'
 });

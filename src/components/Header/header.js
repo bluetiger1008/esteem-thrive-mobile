@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'font-awesome/css/font-awesome.css';
 import FontAwesome from 'react-fontawesome';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Div } from '../common';
 import logo from '../../assets/images/logo_black.png';

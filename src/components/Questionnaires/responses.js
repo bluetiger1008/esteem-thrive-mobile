@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import 'font-awesome/css/font-awesome.css';
 import FontAwesome from 'react-fontawesome';
 
-import logo from '../../assets/images/logo_black.png';
 import { Div } from '../common';
 import Header from '../Header/header';
 import QuestionnaireHeader from './questionnaireHeader';
@@ -34,7 +33,7 @@ class QuestionResponses extends Component {
 	}
 
 	render() {
-		const { questionnaires, selectedChildren, current_questionnaire_step, questionnaire_responses, responseSubmitting } = this.props;
+		const { questionnaires, current_questionnaire_step, questionnaire_responses, responseSubmitting } = this.props;
 
 		return (
 			<QuestionResponsesWrapper>
