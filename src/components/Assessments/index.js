@@ -26,27 +26,34 @@ class Assessments extends Component {
 			<AssessmentsWrapper>
 				<Header />
 				<Div className="content">
-					<ul>
-						{ selectedChildren ? (
-								selectedChildren.questionnaires.map((item, index) => {
-								return (
-									<li key={index} onClick={this.handleSelectAssessment.bind(undefined, item)} className={item.completed && 'completed'}>
-										<div className="img-assessment">
-											<img src={item.image} />
-										</div>
-										<div className="assessment-info">
-											<p className="assessment-name">{item.title}</p>
-											<p className="assessment-time">{item.completed ? 'completed' : item.time}</p>
-										</div>
-									</li>
-								);
-							})) : (
-								<div className='error'>
-									<p>Please selct a children</p>
-								</div>
-							)
-						}
-					</ul>
+					{ selectedChildren ? (
+						selectedChildren.questionnaires.length > 0 ? (
+							<ul>
+								{ selectedChildren.questionnaires.map((item, index) => {
+									return (
+										<li key={index} onClick={this.handleSelectAssessment.bind(undefined, item)} className={item.completed && 'completed'}>
+											<div className="img-assessment">
+												<img src={item.image} />
+											</div>
+											<div className="assessment-info">
+												<p className="assessment-name">{item.title}</p>
+												<p className="assessment-time">{item.completed ? 'completed' : item.time}</p>
+											</div>
+										</li>
+									);
+								})}
+							</ul>
+						): (
+							<h3>
+								Great Job! <br/>
+								You've completed all due assessments.
+							</h3>
+						)
+					) : (
+						<div className='error'>
+							<p>Please selct a children</p>
+						</div>
+					)}
 				</Div>
 			</AssessmentsWrapper>
 		);

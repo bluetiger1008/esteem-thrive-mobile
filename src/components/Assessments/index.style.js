@@ -22,6 +22,16 @@ const AssessmentsWrapper = styled.div`
 	.content {
 		height: calc(100vh - 101px);
 		overflow: auto;
+		h3 {
+			line-height: 1.2em;
+			width: 100%;
+			margin-top: 30px;
+		}
+		.error {
+			width: 100%;
+			text-align: center;
+			margin-top: 30px;
+		}
 		ul {
 			list-style: none;
 			width: 100%;
