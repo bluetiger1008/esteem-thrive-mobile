@@ -18,13 +18,13 @@ const QuestionnairesWrapper = styled.div`
 			li {
 				width: 200px;
 				display: flex;
-				height: 30px;
+				min-height: 30px;
 				align-items: center;
 				justify-content: center;
 				margin-bottom: 10px;
 				color: white;
 				p {
-					margin: 0;
+					margin: 5px 0;
 				}
 			}
 		}

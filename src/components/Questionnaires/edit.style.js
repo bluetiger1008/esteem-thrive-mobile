@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const EditWrapper = styled.div`
 	.questionnaire-content {
-		height: calc(100vh - 70px);
 		position: relative;
 		h3 {
 			margin-top: 0;
@@ -24,7 +23,7 @@ const EditWrapper = styled.div`
 				margin-bottom: 10px;
 				color: white;
 				p {
-					margin: 0;
+					margin: 5px 0;
 				}
 			}
 		}

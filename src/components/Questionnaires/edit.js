@@ -15,6 +15,13 @@ class QuestionnaireEdit extends Component {
 
 	render() {
 		const { selectedQuestionnaire } = this.props;
+		const colors = {
+      blue: '#00a8ff',
+      red: '#ff5c33',
+      orange: '#ff8000',
+      yellow: '#e6da00',
+      green: '#2bd96b'
+    };
 
 		return (
 			<EditWrapper>
@@ -24,9 +31,9 @@ class QuestionnaireEdit extends Component {
 						<h3>{selectedQuestionnaire.title}</h3>
 						<ul>
 							{
-								selectedQuestionnaire.question_responses.map((response, j) => {
+								selectedQuestionnaire.question_responses.sort((a, b) => a.position - b.position).map((response, j) => {
 									return (
-										<li key={j} onClick={this.onChangeAnswer(response, selectedQuestionnaire)}><p>{response.name}</p></li>
+										<li key={j} onClick={this.onChangeAnswer(response, selectedQuestionnaire)} style={{ backgroundColor: response.color ? colors[response.color] : 'red' }}><p>{response.name}</p></li>
 									);
 								})
 							}

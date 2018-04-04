@@ -52,6 +52,14 @@ class Questionnaires extends Component {
 	render() {
 		const { questionnaires, current_questionnaire_step } = this.props;
 		
+    const colors = {
+      blue: '#00a8ff',
+      red: '#ff5c33',
+      orange: '#ff8000',
+      yellow: '#e6da00',
+      green: '#2bd96b'
+    };
+
 		return (
 			<QuestionnairesWrapper>
         <Header/>
@@ -81,9 +89,13 @@ class Questionnaires extends Component {
 									<h3>{questionnaires.questions[current_questionnaire_step - 1].title}</h3>
 									<ul>
 										{
-											questionnaires.questions[current_questionnaire_step - 1].question_responses.map((response, j) => {
+											questionnaires.questions[current_questionnaire_step - 1].question_responses.sort((a, b) => a.position - b.position).map((response, j) => {
 												return (
-													<li key={j} onClick={this.onSelectAnswer(response, questionnaires.questions[current_questionnaire_step-1])} style={{ backgroundColor: response.color }}><p>{response.name}</p></li>
+													<li key={j} 
+                            onClick={this.onSelectAnswer(response, questionnaires.questions[current_questionnaire_step-1])} 
+                            style={{ backgroundColor: response.color ? colors[response.color] : 'red' }}>
+                            <p>{response.name}</p>
+                          </li>
 												);
 											})
 										}
