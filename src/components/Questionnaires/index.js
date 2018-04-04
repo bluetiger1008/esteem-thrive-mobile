@@ -57,25 +57,26 @@ class Questionnaires extends Component {
 
 		return (
 			<QuestionnairesWrapper>
-				<Modal 
-           isOpen={this.state.showModal}
-           contentLabel="Minimal Modal Example"
-           className="startModal"
-        >
-        	<div className="modal-header">
-	        	<p>{questionnaires.title}</p>
-	        </div>
-	        <div className="modal-content">
-	        	<p>{questionnaires.description}</p>
-	        </div>
-	        <div className="modal-footer" onClick={this.handleCloseModal}>
-	          <p>Start Questionnaire</p>
-	        </div>
-        </Modal>
         <Header/>
-        { questionnaires.questions && 
+        { questionnaires && 
         	(
         		<div>
+              <Modal 
+                 isOpen={this.state.showModal}
+                 contentLabel="Minimal Modal Example"
+                 className="startModal"
+              >
+                <div className="modal-header">
+                  <p>{questionnaires.title}</p>
+                </div>
+                <div className="modal-content">
+                  <p>{questionnaires.description}</p>
+                </div>
+                <div className="modal-footer" onClick={this.handleCloseModal}>
+                  <p>Start Questionnaire</p>
+                </div>
+              </Modal>
+
 	        		<QuestionnaireHeader questionnaires={questionnaires} current_questionnaire_step={current_questionnaire_step} />
 
 							<div className="questionnaire-content">
@@ -85,7 +86,7 @@ class Questionnaires extends Component {
 										{
 											questionnaires.questions[current_questionnaire_step - 1].question_responses.map((response, j) => {
 												return (
-													<li key={j} onClick={this.onSelectAnswer(response, questionnaires.questions[current_questionnaire_step-1])}><p>{response.name}</p></li>
+													<li key={j} onClick={this.onSelectAnswer(response, questionnaires.questions[current_questionnaire_step-1])} style={{ backgroundColor: response.color }}><p>{response.name}</p></li>
 												);
 											})
 										}
