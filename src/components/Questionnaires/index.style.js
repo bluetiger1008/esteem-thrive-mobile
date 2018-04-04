@@ -18,11 +18,14 @@ const QuestionnairesWrapper = styled.div`
 			li {
 				width: 200px;
 				display: flex;
+				height: 30px;
 				align-items: center;
 				justify-content: center;
-				background-color: red;
 				margin-bottom: 10px;
 				color: white;
+				p {
+					margin: 0;
+				}
 			}
 		}
 		.question {
@@ -32,7 +35,7 @@ const QuestionnairesWrapper = styled.div`
 			position: fixed;
 			bottom: 0;
 			width: 100%;
-			height: 50px;
+			height: 30px;
 			.previous-question {
 				width: 100%;
 				height: 100%;

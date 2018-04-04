@@ -17,12 +17,15 @@ const EditWrapper = styled.div`
 			justify-content: space-around;
 			li {
 				width: 200px;
+				min-height: 30px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background-color: red;
 				margin-bottom: 10px;
 				color: white;
+				p {
+					margin: 0;
+				}
 			}
 		}
 		.question {
