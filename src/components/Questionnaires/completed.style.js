@@ -35,6 +35,8 @@ const QuestionnaireCompletedWrapper = styled.div`
     }
     .btn {
       position: relative;
+      border: none;
+      background: transparent;
       &.btn-continue {
         width: 200px;
         height: 50px;
