@@ -1,23 +1,23 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const QuestionnaireCompletedWrapper = styled.div`
-	.header {
-		border-bottom: 1px solid grey;
-		padding: 0 30px;
-		height: 100px;
-		text-align: center;
-		position: relative;
-		p {
-			margin: 0;
-			color: black;
-			font-size: 30px;
-		}
-		.logo {
-			position: absolute;
-			right: 10px;
-			top: 10px;
-			width: 80px;
-		}
+  .header {
+    border-bottom: 1px solid grey;
+    padding: 0 30px;
+    height: 100px;
+    text-align: center;
+    position: relative;
+    p {
+      margin: 0;
+      color: black;
+      font-size: 30px;
+    }
+    .logo {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 80px;
+    }
   }
   .content {
     padding: 0 30px;
@@ -30,7 +30,7 @@ const QuestionnaireCompletedWrapper = styled.div`
           max-width: 50px;
           max-height: 50px;
           margin-right: 10px;
-        } 
+        }
       }
     }
     .btn {
@@ -77,6 +77,6 @@ const QuestionnaireCompletedWrapper = styled.div`
       }
     }
   }
-`;
+`
 
-export default QuestionnaireCompletedWrapper;
+export default QuestionnaireCompletedWrapper

@@ -25,23 +25,23 @@ const appActons = {
   CHANGE_ANSWER: 'CHANGE_ANSWER',
   COMPLETED_QUESTIONNAIRES: 'COMPLETED_QUESTIONNAIRES',
   COMPLETED_QUESTIONNAIRES_SUCCESS: 'COMPLETED_QUESTIONNAIRES_SUCCESS',
-  
+
   CONTINUE_ASSESSMENTS: 'CONTINUE_ASSESSMENTS',
 
-  select_children: ( children ) => ({
+  select_children: children => ({
     type: appActons.SELECT_CHILDREN,
-    children  
+    children
   }),
 
   get_children: () => ({
-    type: appActons.GET_CHILDREN,
+    type: appActons.GET_CHILDREN
   }),
 
   get_assessments: () => ({
-  	type: appActons.GET_ASSESSMENTS_REQUEST
+    type: appActons.GET_ASSESSMENTS_REQUEST
   }),
 
-  select_assessment: (assessment) => ({
+  select_assessment: assessment => ({
     type: appActons.SELECT_ASSESSMENT,
     assessment
   }),
@@ -70,7 +70,7 @@ const appActons = {
     type: appActons.RESET_QUESTIONNAIRES
   }),
 
-  edit_questionnaire: (questionnaire_id) => ({
+  edit_questionnaire: questionnaire_id => ({
     type: appActons.EDIT_QUESTIONNAIRE,
     questionnaire_id
   }),
@@ -83,7 +83,7 @@ const appActons = {
     }
   }),
 
-  completed_questionnaires: (assessmentData) => ({
+  completed_questionnaires: assessmentData => ({
     type: appActons.COMPLETED_QUESTIONNAIRES,
     assessmentData
   }),
@@ -91,6 +91,6 @@ const appActons = {
   continue_assessments: () => ({
     type: appActons.CONTINUE_ASSESSMENTS
   })
-};
+}
 
-export default appActons;
+export default appActons
