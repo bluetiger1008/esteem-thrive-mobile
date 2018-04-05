@@ -1,18 +1,18 @@
-import axios from 'axios';
-import { getToken } from './utility';
+import axios from 'axios'
+import { getToken } from './utility'
 
 const client = axios.create({
-	baseURL: 'https://esteem-thrive-api.herokuapp.com/v1'
-});
+  baseURL: process.env.REACT_APP_API_URL || 'https://esteem-thrive-api.herokuapp.com/v1'
+})
 
 client.interceptors.request.use(
   config => {
     if (getToken().toJS() !== null) {
-      config.headers['X-User-Token'] = getToken().toJS().idToken;
-      config.headers['X-User-Email'] = getToken().toJS().userEmail;
+      config.headers['X-User-Token'] = getToken().toJS().idToken
+      config.headers['X-User-Email'] = getToken().toJS().userEmail
     }
 
-    return config;
+    return config
   },
   error => {
     return error
@@ -20,80 +20,88 @@ client.interceptors.request.use(
 )
 
 function loginAPI(authData) {
-  return client.post('/sessions', authData )
+  return client
+    .post('/sessions', authData)
     .then(response => {
-    	return response.data.user;
+      return response.data.user
     })
     .catch(err => {
       throw err
-    });
+    })
 }
 
 function logoutAPI() {
-  return client.delete('/sessions' )
+  return client
+    .delete('/sessions')
     .then(response => {
-      return response;
+      return response
     })
     .catch(err => {
       throw err
-    }); 
+    })
 }
 
 function listChildrenAPI() {
-	return client.get('/children')
-		.then(response => response.data.children)
-		.catch(err => {
-			throw err
-		});
+  return client
+    .get('/children')
+    .then(response => response.data.children)
+    .catch(err => {
+      throw err
+    })
 }
 
 function listAllChildrenAssessments() {
-  return client.get('/assessments/outstanding_assessments')
+  return client
+    .get('/assessments/outstanding_assessments')
     .then(response => {
-      return response.data.children;
+      return response.data.children
     })
     .catch(err => {
       throw err
-    }); 
+    })
 }
 
 function listAssessmentsAPI() {
-  return client.get('/questionnaires')
+  return client
+    .get('/questionnaires')
     .then(response => response.data.questionnaires)
     .catch(err => {
       throw err
-    });
+    })
 }
 
 function listOutstandingAssessmentsAPI(selectedChild) {
-  console.log(selectedChild);
-  return client.get('/assessments/outstanding_assessments', {params: { child_id: selectedChild.id}})
+  console.log(selectedChild)
+  return client
+    .get('/assessments/outstanding_assessments', { params: { child_id: selectedChild.id } })
     .then(response => response.data.assessments)
     .catch(err => {
       throw err
-    }); 
+    })
 }
 
 function getQuestionnaireAPI(assessmentID) {
-  return client.get('/questionnaires/' + assessmentID)
+  return client
+    .get('/questionnaires/' + assessmentID)
     .then(response => response.data.questionnaire)
     .catch(err => {
       throw err
-    });
+    })
 }
 
 function createAssessmentAPI(assessmentData) {
-  return client.post('/assessments', assessmentData )
+  return client
+    .post('/assessments', assessmentData)
     .then(response => {
-      console.log(response);
-      return response;
+      console.log(response)
+      return response
     })
     .catch(err => {
       throw err
-    });
+    })
 }
 
-export { 
+export {
   loginAPI,
   logoutAPI,
   listChildrenAPI,
@@ -102,4 +110,4 @@ export {
   listOutstandingAssessmentsAPI,
   getQuestionnaireAPI,
   createAssessmentAPI
-};
+}
