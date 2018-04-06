@@ -41,14 +41,12 @@ const QuestionResponsesWrapper = styled.div`
 			height: 100%;
 			width: 50%;
 			color: white;
+			border: none;
 			&.btn-reset {
 				background-image: linear-gradient(to right, #f05b7c, #f35574, #f54e6b, #f74862, #f94159);
 			}
 			&.btn-submit {
 				background-color: #2ebd2e;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
 				span {
 					margin-right: 5px;
 				}
