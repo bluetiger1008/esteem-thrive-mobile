@@ -36,7 +36,6 @@ class QuestionnaireCompleted extends Component {
   }
 
   logout = () => {
-    console.log('log out');
     this.props.logout();
   }
 
