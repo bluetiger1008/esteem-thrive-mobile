@@ -16,7 +16,7 @@ const EditWrapper = styled.div`
       justify-content: space-around;
       li {
         width: 200px;
-        min-height: 30px;
+        min-height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
