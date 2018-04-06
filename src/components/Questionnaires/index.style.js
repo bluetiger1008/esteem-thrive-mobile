@@ -18,7 +18,7 @@ const QuestionnairesWrapper = styled.div`
       li {
         width: 200px;
         display: flex;
-        min-height: 35px;
+        min-height: 40px;
         align-items: center;
         justify-content: center;
         margin-bottom: 10px;
