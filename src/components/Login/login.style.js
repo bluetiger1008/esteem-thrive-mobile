@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import bgLogin from '../../assets/images/login.png';
+import styled from 'styled-components'
+import bgLogin from '../../assets/images/login.png'
 
 const LoginWrapper = styled.div`
   height: 100vh;
@@ -25,7 +25,7 @@ const LoginWrapper = styled.div`
           width: 250px;
           height: 40px;
           border: 1px solid #fff;
-          background-color: rgba(0,0,0,0.8);
+          background-color: rgba(0, 0, 0, 0.8);
           color: #fff;
           padding: 0 10px;
           margin: 10px 0;
@@ -54,6 +54,6 @@ const LoginWrapper = styled.div`
       }
     }
   }
-`;
+`
 
-export default LoginWrapper;
+export default LoginWrapper

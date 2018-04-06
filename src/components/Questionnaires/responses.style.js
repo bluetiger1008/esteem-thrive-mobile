@@ -1,36 +1,36 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const QuestionResponsesWrapper = styled.div`
-	.content {
-		padding: 0 20px;
-		text-align: left;
-		.response-table {
-			width: 100%;
-			padding-bottom: 50px;
-			.pt-question {
-				width: 60%;
-				padding-right: 10px;
-			}
-			.pt-response {
-				width: 40%;
-				display: flex;
-				justify-content: space-between;
-			}
-			.tb-header {
-				.th {
-					font-weight: bold;
-					font-size: 0.9em;
-				}
-			}
-			.tb-body {
-				.td-row {
-					font-size: 0.8em;
-					background: #f3f3f3;
-					margin: 3px 0;
-				}
-			}
-		}
-	}
+  .content {
+    padding: 0 20px;
+    text-align: left;
+    .response-table {
+      width: 100%;
+      padding-bottom: 50px;
+      .pt-question {
+        width: 60%;
+        padding-right: 10px;
+      }
+      .pt-response {
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .tb-header {
+        .th {
+          font-weight: bold;
+          font-size: 0.9em;
+        }
+      }
+      .tb-body {
+        .td-row {
+          font-size: 0.8em;
+          background: #f3f3f3;
+          margin: 3px 0;
+        }
+      }
+    }
+  }
 
 	.footer {
 		position: fixed;
@@ -58,4 +58,4 @@ const QuestionResponsesWrapper = styled.div`
 	}
 `;
 
-export default QuestionResponsesWrapper;
+export default QuestionResponsesWrapper

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import logo from '../../assets/images/logo_black.png';
 import ChildrenWrapper from './index.style';
@@ -11,13 +11,13 @@ const { get_children, select_children } = appActions;
 const { logout } = authActions;
 
 class Children extends Component {
-	componentDidMount() {
-		this.props.get_children();
-	}
+  componentDidMount() {
+    this.props.get_children()
+  }
 
-	onSelectChildren = (item) => {
-		this.props.select_children(item);
-	}
+  onSelectChildren = item => {
+    this.props.select_children(item)
+  }
 
 	logout = () => {
     this.props.logout();

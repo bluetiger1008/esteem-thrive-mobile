@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const AssessmentsWrapper = styled.div`
 	.header {
@@ -93,4 +93,4 @@ const AssessmentsWrapper = styled.div`
 	}
 `;
 
-export default AssessmentsWrapper;
+export default AssessmentsWrapper

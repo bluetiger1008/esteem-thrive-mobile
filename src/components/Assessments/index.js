@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 
-import AssessmentsWrapper from './index.style';
-import { Div } from '../common';
-import appActions from '../../redux/app/actions';
-import Header from '../Header/header';
+import AssessmentsWrapper from './index.style'
+import { Div } from '../common'
+import appActions from '../../redux/app/actions'
+import Header from '../Header/header'
 
-const { get_assessments, get_children, select_assessment } = appActions;
+const { get_assessments, get_children, select_assessment } = appActions
 
 class Assessments extends Component {
-	handleSelectAssessment = (item) => {
-		if(!item.completed && item.completed === undefined) {
-			this.props.select_assessment(item);	
-		}
-	}
+  handleSelectAssessment = item => {
+    if (!item.completed && item.completed === undefined) {
+      this.props.select_assessment(item)
+    }
+  }
 
 	componentDidMount() {
 		var target = $(".todo:first");
@@ -43,8 +43,6 @@ class Assessments extends Component {
 							<div className="assessments">
 								{ selectedChildren.questionnaires.length === completedQuestionnairesLength &&
 									<h3>
-										{selectedChildren.questionnaires.length}
-										{completedQuestionnairesLength}
 										Great Job! <br/>
 										You've completed all due assessments.
 									</h3>
@@ -87,4 +85,4 @@ export default connect(
     ...state.App.toJS()
   }),
   { get_assessments, get_children, select_assessment }
-)(Assessments);
+)(Assessments)
