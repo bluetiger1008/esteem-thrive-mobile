@@ -9,6 +9,7 @@ const initState = new Map({
   selectedQuestionnaireID: null,
   questionnaires: null,
   selectedQuestionnaire: {},
+  completedQuestionnairesLength: 0,
   current_questionnaire_step: 1,
   questionnaire_responses: {
     ids: [],
@@ -77,8 +78,10 @@ export default function appReducer(state = initState, action) {
       return state.set('responseSubmitting', false);
 
     case actions.CONTINUE_ASSESSMENTS:
+      let completedQuestionnairesLength = _.filter(state.toJS().selectedChildren.questionnaires, { completed: true}).length;
       return state
-        .set('current_questionnaire_step', 1);
+        .set('current_questionnaire_step', 1)
+        .set('completedQuestionnairesLength', completedQuestionnairesLength);
 
     default:
       return state;

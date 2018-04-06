@@ -20,7 +20,6 @@ const AssessmentsWrapper = styled.div`
 		}
 	}
 	.content {
-		height: calc(100vh - 101px);
 		overflow: auto;
 		h3 {
 			line-height: 1.2em;
@@ -32,9 +31,11 @@ const AssessmentsWrapper = styled.div`
 			text-align: center;
 			margin-top: 30px;
 		}
+		.assessments {
+			width: 100%;
+		}
 		ul {
 			list-style: none;
-			width: 100%;
 			padding: 0 30px;
 			li {
 				height: 60px;
