@@ -27,7 +27,7 @@ if (localStorage.getItem('id_token') !== null && localStorage.getItem('user_emai
     JSON.stringify({
       loaded: true
     }),
-    'https://esteemthrive.com'
+    'https://staging.esteemthrive.com'
   )
 }
 
