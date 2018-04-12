@@ -18,6 +18,7 @@ const LoginWrapper = styled.div`
     background-size: cover;
     background-position: center;
     form {
+      margin: -100px 0 0 0;
       width: 100%;
       .form-group {
         align-items: center;
