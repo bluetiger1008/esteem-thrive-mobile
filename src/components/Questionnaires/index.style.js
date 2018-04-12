@@ -15,6 +15,7 @@ const QuestionnairesWrapper = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
+
       li {
         width: 200px;
         display: flex;
@@ -22,7 +23,11 @@ const QuestionnairesWrapper = styled.div`
         align-items: center;
         justify-content: center;
         margin-bottom: 10px;
-        color: white;
+        color: #fafafa;
+        border-radius: 4px;
+        box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+
         p {
           margin: 5px 0;
         }
@@ -35,21 +40,15 @@ const QuestionnairesWrapper = styled.div`
       position: fixed;
       bottom: 0;
       width: 100%;
-      height: 30px;
+
       .previous-question {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(147, 206, 222, 1);
-        background: linear-gradient(
-          to right,
-          rgba(147, 206, 222, 1) 0%,
-          rgba(117, 189, 209, 1) 27%,
-          rgba(50, 136, 207, 1) 100%
-        );
-        color: #fff;
+        background-image: linear-gradient(-225deg, #00a8ff 0%, #0097e6 100%);
+        color: #fafafa;
       }
     }
   }
