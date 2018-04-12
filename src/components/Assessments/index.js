@@ -78,7 +78,7 @@ class Assessments extends Component {
             )
           ) : (
             <div className="error">
-              <p>Please selct a children</p>
+              <p>Please go back and select a child.</p>
             </div>
           )}
         </Div>
