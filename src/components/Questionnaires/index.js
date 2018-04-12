@@ -68,7 +68,7 @@ class Questionnaires extends Component {
                 <p>{questionnaires.title}</p>
               </div>
               <div className="modal-content">
-                <p>{questionnaires.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: questionnaires.description }} />
               </div>
               <div className="modal-footer" onClick={this.handleCloseModal}>
                 <p>Start Questionnaire</p>
