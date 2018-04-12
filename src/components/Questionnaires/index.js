@@ -36,8 +36,6 @@ class Questionnaires extends Component {
   }
 
   onSelectAnswer = (question_response, question) => e => {
-    console.log(question_response, question)
-
     if (this.props.current_questionnaire_step === this.props.questionnaires.questions.length) {
       this.props.select_last_answer(question_response, question)
     } else {

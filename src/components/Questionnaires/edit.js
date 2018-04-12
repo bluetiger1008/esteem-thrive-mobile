@@ -9,7 +9,6 @@ const { change_answer } = appActions
 
 class QuestionnaireEdit extends Component {
   onChangeAnswer = (response, selectedQuestionnaire) => e => {
-    console.log(response, selectedQuestionnaire)
     this.props.change_answer(response, selectedQuestionnaire)
   }
 

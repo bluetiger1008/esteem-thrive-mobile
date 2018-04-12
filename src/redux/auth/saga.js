@@ -13,7 +13,6 @@ export function* loginRequest() {
 
     try {
       user = yield call(loginAPI, authData)
-      console.log(user)
       yield put({
         type: actions.LOGIN_SUCCESS,
         token: user.token,

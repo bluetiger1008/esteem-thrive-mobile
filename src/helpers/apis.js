@@ -71,7 +71,6 @@ function listAssessmentsAPI() {
 }
 
 function listOutstandingAssessmentsAPI(selectedChild) {
-  console.log(selectedChild)
   return client
     .get('/assessments/outstanding_assessments', { params: { child_id: selectedChild.id } })
     .then(response => response.data.assessments)
@@ -93,7 +92,6 @@ function createAssessmentAPI(assessmentData) {
   return client
     .post('/assessments', assessmentData)
     .then(response => {
-      console.log(response)
       return response
     })
     .catch(err => {

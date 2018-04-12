@@ -38,11 +38,10 @@ class QuestionnaireCompleted extends Component {
   }
 
   logout = () => {
-    this.props.logout();
+    this.props.logout()
   }
 
   continueAssessment = () => {
-    console.log('continue assessment')
     this.props.continue_assessments()
   }
 

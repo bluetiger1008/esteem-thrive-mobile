@@ -74,7 +74,6 @@ export default function appReducer(state = initState, action) {
       return state.set('selectedQuestionnaire', selectedQuestionnaire)
 
     case actions.CHANGE_ANSWER:
-      console.log(action.payload)
       _.find(state.toJS().questionnaire_responses.ids, {
         question_id: action.payload.selectedQuestionnaire.id
       }).question_response_id =
@@ -95,10 +94,11 @@ export default function appReducer(state = initState, action) {
       return state.set('responseSubmitting', false)
 
     case actions.CONTINUE_ASSESSMENTS:
-      let completedQuestionnairesLength = _.filter(state.toJS().selectedChildren.questionnaires, { completed: true}).length;
+      let completedQuestionnairesLength = _.filter(state.toJS().selectedChildren.questionnaires, { completed: true })
+        .length
       return state
         .set('current_questionnaire_step', 1)
-        .set('completedQuestionnairesLength', completedQuestionnairesLength);
+        .set('completedQuestionnairesLength', completedQuestionnairesLength)
 
     default:
       return state
