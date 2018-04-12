@@ -46,10 +46,8 @@ class QuestionResponses extends Component {
             />
 
             <Div className="content" direction="column">
-              <p>
-                You've answered all the questions in this questionnaire <br />
-                You can review your answers below, and submit them with the "Submit Answers" button
-              </p>
+              <p>You've answered all the questions in this questionnaire.</p>
+              <p>You can review your answers below, and submit them with the "Submit Answers" button.</p>
               <div className="response-table">
                 <Div className="tb-header">
                   <div className="th pt-question">Question</div>
