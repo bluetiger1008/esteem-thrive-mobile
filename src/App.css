@@ -1,5 +1,8 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
 .App {
   text-align: center;
+  font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .App-logo {

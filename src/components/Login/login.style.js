@@ -5,10 +5,10 @@ const LoginWrapper = styled.div`
   height: 100vh;
   .header {
     height: 100px;
-    background-color: #000;
+    background-image: linear-gradient(-225deg, #243b55, #141e30);
     color: #fff;
     .logo {
-      height: 80px;
+      height: 50px;
       width: auto;
     }
   }
@@ -22,35 +22,47 @@ const LoginWrapper = styled.div`
       .form-group {
         align-items: center;
         .form-input {
-          width: 250px;
-          height: 40px;
-          border: 1px solid #fff;
-          background-color: rgba(0, 0, 0, 0.8);
-          color: #fff;
-          padding: 0 10px;
-          margin: 10px 0;
+          width: 100%;
+          max-width: 80%;
+          margin: 0 0 10px 0;
+          background-color: white;
+          -webkit-appearance: none;
           font-size: 16px;
-          outline: none;
-        }
-        .form-validation {
-          color: red;
-          font-size: 12px;
+          padding: 10px;
+          width: 100%;
+          border-radius: 4px;
+          color: #2b303a;
+          border: 1px solid #cccccc;
+          transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+          &:focus {
+            outline: 0;
+            border: 1px solid #2b303a;
+          }
         }
       }
       .btn-login {
-        background: #41b3f0;
-        background-image: linear-gradient(to bottom, #41b3f0, #0b73c2);
-        border: none;
-        width: 200px;
-        height: 50px;
-        color: white;
-        font-size: 20px;
-        margin-top: 100px;
-        outline: none;
-        &:hover {
-          background: #3cb0fd;
-          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-        }
+        margin: 20px auto 0 auto;
+        padding: 10px 60px;
+        border-radius: 4px;
+        box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.05);
+        background-image: linear-gradient(-225deg, #00a8ff 0%, #0097e6 100%);
+        cursor: pointer;
+        transition: transform 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border: 0;
+        outline: 0;
+        font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 21px;
+        font-weight: 500;
+        color: #fafafa;
+        user-select: none;
+        text-align: center;
       }
     }
   }
