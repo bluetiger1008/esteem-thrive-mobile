@@ -27,13 +27,13 @@ window.addEventListener(
       }
 
       else {
-  window.parent.postMessage(
-    JSON.stringify({
-      loaded: true
-    }),
-    'https://staging.esteemthrive.com'
-  )
-}
+        window.parent.postMessage(
+          JSON.stringify({
+            loaded: true
+          }),
+          'https://staging.esteemthrive.com'
+        )
+      }
     }
   },
   false
