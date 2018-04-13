@@ -48,18 +48,45 @@ const QuestionnaireCompletedWrapper = styled.div`
         margin-bottom: 50px;
       }
       &.btn-logout {
+        margin: 50px 0;
+        width: 200px;
+        height: 50px;
+        border-radius: 80px;
+        background-color: #e6532e;
+        color: white;
         font-size: 20px;
-        color: black;
-        text-decoration: underline;
-        margin-top: 50px;
+        line-height: 50px;
+        outline: none;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
       &.btn-switch {
-        font-size: 20px;
-        text-decoration: underline;
-        width: auto;
+        width: 200px;
         height: 50px;
+        border-radius: 80px;
+        background-color: #ecb609;
+        margin: 10px 0;
+        color: white;
+        font-size: 20px;
+        outline: none;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
         .due-notification {
-          right: -30px;
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          right: 0px;
+          top: -15px;
+          background-color: #000;
+          border-radius: 50%;
+          margin: 0;
+          line-height: 30px;
+          border: 3px solid #fff;
         }
       }
       .due-notification {

@@ -24,6 +24,7 @@ const ChildrenWraper = styled.div`
   }
   .content {
     height: calc(100vh - 151px);
+    padding: 20px 0 0 0;
     width: 100%;
     background-image: url(${bgMountain});
     background-size: 100% auto;
@@ -43,9 +44,7 @@ const ChildrenWraper = styled.div`
         position: relative;
         cursor: pointer;
         font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        &:first-child {
-          margin-top: 100px;
-        }
+
         .due-notification {
           position: absolute;
           width: 30px;
@@ -61,10 +60,19 @@ const ChildrenWraper = styled.div`
       }
     }
     .btn-logout {
+      margin: 50px 0;
+      width: 200px;
+      height: 50px;
+      border-radius: 80px;
+      background-color: #e6532e;
+      color: white;
       font-size: 20px;
-      color: black;
-      text-decoration: underline;
-      margin-top: 50px;
+      line-height: 50px;
+      outline: none;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
   }
 `
