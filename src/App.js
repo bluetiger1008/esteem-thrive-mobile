@@ -31,7 +31,7 @@ window.addEventListener(
           JSON.stringify({
             loaded: true
           }),
-          'https://staging.esteemthrive.com'
+          'https://esteemthrive.com'
         )
       }
     }
