@@ -58,7 +58,7 @@ class QuestionnaireCompleted extends Component {
         <Header />
         <Div className="content" direction="column" alignItems="center">
           <h2 className="questionnaire-title">
-            <img src={questionnaires.image} alt="image" />
+            <img src={questionnaires.image} alt="questionnaire title" />
             Completed {questionnaires.title}
           </h2>
           <button className="btn btn-continue" onClick={this.continueAssessment}>

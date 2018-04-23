@@ -31,7 +31,7 @@ const QuestionnaireHeader = ({ questionnaires, current_questionnaire_step }) => 
       <ProgressBar percentage={current_questionnaire_step} questionLength={questionnaires.questions.length} />
     </div>
     <div className="questionnaire-image">
-      <img src={questionnaires.image} alt="image" />
+      <img src={questionnaires.image} alt="questionnaire" />
     </div>
   </QuestionnaireHeaderWrapper>
 )
