@@ -16,7 +16,7 @@ localStorage.setItem('last_visit', Date.now())
 window.addEventListener(
   'message',
   e => {
-    if (e.isTrusted === true) {
+    if (e.isTrusted === true && e.origin === 'https://esteemthrive.com') {
       const { email, token } = JSON.parse(e.data)
 
       if (email !== localStorage.getItem('user_email') || token !== localStorage.getItem('id_token')) {
@@ -24,9 +24,7 @@ window.addEventListener(
         localStorage.setItem('id_token', token)
 
         window.location.href = window.location.href
-      }
-
-      else {
+      } else {
         window.parent.postMessage(
           JSON.stringify({
             loaded: true
