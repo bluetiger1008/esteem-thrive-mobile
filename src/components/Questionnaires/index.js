@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
-import QuestionnaireHeader from './questionnaireHeader'
+import QuestionnaireHeader from './common/questionnaireHeader'
 import QuestionnairesWrapper from './index.style'
 import appActions from '../../redux/app/actions'
 import Header from '../Header/header'
