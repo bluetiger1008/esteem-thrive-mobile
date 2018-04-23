@@ -24,13 +24,6 @@ window.addEventListener(
         localStorage.setItem('id_token', token)
 
         window.location.href = window.location.href
-      } else {
-        window.parent.postMessage(
-          JSON.stringify({
-            loaded: true
-          }),
-          'https://esteemthrive.com'
-        )
       }
     }
   },
