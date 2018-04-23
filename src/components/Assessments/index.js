@@ -59,7 +59,7 @@ class Assessments extends Component {
                         className={item.completed ? 'completed' : 'todo'}
                       >
                         <div className="img-assessment">
-                          <img src={item.image} alt="image" />
+                          <img src={item.image} alt="assessment" />
                         </div>
                         <div className="assessment-info">
                           <p className="assessment-name">{item.title}</p>

@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome'
 
 import { Div } from '../common'
 import Header from '../Header/header'
-import QuestionnaireHeader from './questionnaireHeader'
+import QuestionnaireHeader from './common/questionnaireHeader'
 import QuestionResponsesWrapper from './responses.style'
 import appActions from '../../redux/app/actions'
 
