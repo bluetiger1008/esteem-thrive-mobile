@@ -8,7 +8,7 @@ import Assessments from './components/Assessments'
 import Questionnaires from './components/Questionnaires'
 import QuestionResponses from './components/Questionnaires/responses'
 import QuestionnaireEdit from './components/Questionnaires/edit'
-import InstantScores from './components/Questionnaires/instantScores'
+import InstantScores from './components/Questionnaires/InstantScores'
 import QuestionnaireCompleted from './components/Questionnaires/completed'
 
 const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
@@ -39,7 +39,7 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
         <RestrictedRoute exact path="/questionnaires" component={Questionnaires} isLoggedIn={isLoggedIn} />
         <RestrictedRoute path="/questionnaires/edit" component={QuestionnaireEdit} isLoggedIn={isLoggedIn} />
         <RestrictedRoute path="/questionnaires/responses" component={QuestionResponses} isLoggedIn={isLoggedIn} />
-        <RestrictedRoute path="/questionnaires/instant_scores" component={InstantScores} />
+        <RestrictedRoute path="/questionnaires/instant_scores" component={InstantScores} isLoggedIn={isLoggedIn} />
         <RestrictedRoute path="/questionnaires/completed" component={QuestionnaireCompleted} isLoggedIn={isLoggedIn} />
       </div>
     </Router>
