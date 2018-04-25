@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 
-import ADLWrapper from './ADLWrapper.style'
+import ADLWrapper from './ADL.style'
 
-class SelfSufficiency extends Component {
+class ADL extends Component {
 	state = {
 		strengths: [],
 		typicals: [],
@@ -105,4 +105,4 @@ class SelfSufficiency extends Component {
 	}
 }
 
-export default SelfSufficiency
+export default ADL
