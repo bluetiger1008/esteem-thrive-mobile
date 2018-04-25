@@ -1,6 +1,33 @@
 import styled from 'styled-components'
 
 const InstantScoresWrapper = styled.div`
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #2bd96b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    a {
+      margin: 0;
+      color: white;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      line-height: 30px;
+    } 
+  }
+  .content {
+    padding: 20px 20px 40px;
+    .loading {
+      p {
+        margin-top: 150px;
+      }
+    }
+  }
 `
 
 const MainBar = styled.div`
