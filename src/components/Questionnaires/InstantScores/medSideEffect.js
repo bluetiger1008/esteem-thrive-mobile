@@ -39,7 +39,7 @@ class MedSideEffect extends Component {
     
     return (
       <MedSideEffectWrapper>
-        <h1>Medication Side Effects</h1>
+        <p className="info">You've identified { responseBubbles.length } potential side effects. Be sure that your child's physician is aware of your child's potential medication side effects</p>
         <div className="bubbles">
           { responseBubbles.map((item, idx) => {
             return (

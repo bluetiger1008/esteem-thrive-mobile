@@ -46,7 +46,6 @@ class ADL extends Component {
 
 		return (
 			<ADLWrapper>
-				<h1>Self Sufficiency</h1>
 				<div className="scores strengths">
 					<p className="title">{strengths.length} Strengths</p>
 					{ strengths.length > 0 && 

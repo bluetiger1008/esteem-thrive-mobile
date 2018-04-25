@@ -130,6 +130,7 @@ class DessaParent extends Component {
 
 		return (
 			<DessaParentWrappper>
+				<p className="info">Your responses indicate that Slowpoke falls in the <strong>upper { 100 - overall_score }%</strong> of children around their age.</p>
 				<div className="percentile-bar">
 					{ this.renderPercentileBar(overall_score) }
 				</div>

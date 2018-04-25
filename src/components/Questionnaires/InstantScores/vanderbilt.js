@@ -23,7 +23,7 @@ class Vanderbilt extends Component {
 
     return (
       <VanderbiltWrapper>
-        <h1>Vanderbilt</h1>
+        <p className="info">You've identified the following regarding your child's symptom serverity:</p>
         <MainBar inattentive_severity_score={inattentive_severity_score} hyperactive_severity_score={hyperactive_severity_score}> 
           <div className="block red">
           </div>
