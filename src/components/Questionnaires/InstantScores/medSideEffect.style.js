@@ -8,6 +8,7 @@ const MedSideEffectWrapper = styled.div`
     .bubble {
       width: 100px;
       height: 100px;
+      margin: 5px;
       border-radius: 100px;
       overflow: hidden;
       color: white;
