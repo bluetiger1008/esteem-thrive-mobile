@@ -41,7 +41,12 @@ class ADL extends Component {
 
 	render() {
 		const { strengths, typicals, needs } = this.state
-
+		const options = {
+			loop: true,
+			margin: 5,
+			nav: true,
+			navText: ["<img src='/left.png'/>", "<img src='/right.png'/>"]
+		}
 		console.log(strengths)
 
 		return (
@@ -52,7 +57,7 @@ class ADL extends Component {
 							<p className="title">{strengths.length} Strengths</p>
 							<OwlCarousel 
 								className="owl-theme"
-								loop margin={5} nav
+								{...options}
 							>
 								{ strengths.map((item, idx) => {
 									return (
@@ -72,7 +77,7 @@ class ADL extends Component {
 							<p className="title">{typicals.length} Typicals</p>
 							<OwlCarousel 
 								className="owl-theme"
-								loop margin={5} nav
+								{...options}
 							>
 								{ typicals.map((item, idx) => {
 									return (
@@ -92,7 +97,7 @@ class ADL extends Component {
 							<p className="title">{needs.length} Needs</p>
 							<OwlCarousel 
 								className="owl-theme"
-								loop margin={5} nav
+								{...options}
 							>
 								{ needs.map((item, idx) => {
 									return (

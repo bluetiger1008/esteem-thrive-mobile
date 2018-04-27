@@ -30,6 +30,16 @@ const ADLWrapper = styled.div`
 				position: absolute;
 		    top: -50px;
 		    right: 0;
+				[class*=owl-] {
+					background: #fff;
+					&:hover {
+						background: #ddd;
+					}
+				}
+				img {
+					height: 12px;
+
+				}
 			}
 		}
 		&.strengths {
