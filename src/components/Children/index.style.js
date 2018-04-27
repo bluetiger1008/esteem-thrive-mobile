@@ -60,7 +60,6 @@ const ChildrenWraper = styled.div`
       }
     }
     .btn-logout {
-      margin: 50px 0;
       width: 200px;
       height: 50px;
       border-radius: 80px;
@@ -70,7 +69,8 @@ const ChildrenWraper = styled.div`
       line-height: 50px;
       outline: none;
       border: none;
-      position: relative;
+      position: fixed;
+      bottom: 20px;
       cursor: pointer;
       font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }

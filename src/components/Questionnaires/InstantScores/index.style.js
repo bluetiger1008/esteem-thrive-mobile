@@ -11,12 +11,10 @@ const InstantScoresWrapper = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 100;
-    a {
+    p {
       margin: 0;
       color: white;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
+      text-align: center;
       line-height: 30px;
     } 
   }

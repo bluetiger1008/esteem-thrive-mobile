@@ -15,7 +15,7 @@ import Vanderbilt from './vanderbilt'
 import Emotional from './emotional'
 import Header from '../../Header/header'
 
-const { setAssessmentCompleted } = appActions
+const { setAssessmentCompleted, continue_assessments } = appActions
 
 class InstantScores extends Component {
 	state = {
@@ -40,6 +40,10 @@ class InstantScores extends Component {
     } catch(error) {
       // do something with error
     }
+	}
+
+	onContinue = () => {
+		this.props.continue_assessments()
 	}
 
 	render() {
@@ -85,10 +89,8 @@ class InstantScores extends Component {
 						</div>
 
 						{ questionnaireName !== null && (
-							<div className="footer">
-								<Link to="/questionnaires/completed" disabled={ questionnaireName === null }>
-									Continue
-								</Link>
+							<div className="footer" onClick={this.onContinue}>
+								<p>Continue</p>
 							</div>
 						)}
 					</div>
@@ -102,5 +104,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { setAssessmentCompleted }
+  { setAssessmentCompleted, continue_assessments }
 )(InstantScores)

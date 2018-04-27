@@ -40,7 +40,7 @@ const AssessmentsWrapper = styled.div`
 
       li {
         cursor: pointer;
-        height: 60px;
+        height: 75px;
         background-image: linear-gradient(-225deg, #243b55, #141e30);
         margin: 10px 0;
         border-top-right-radius: 30px;
