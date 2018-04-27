@@ -56,28 +56,39 @@ const MainBar = styled.div`
   }
   .marker {
     position: absolute;
-    width: 100px;
+    width: 150px;
     height: 5px;
     &.inattentive {
+      text-align: right;
       background: ${props => props.inattentive_severity_score < 2 ? '#2bd96b' : 
       (props.inattentive_severity_score > 2.5 ? '#ff5c33' : '#e6da00')};
       bottom: ${props => props.inattentive_severity_score < 2 ? props.inattentive_severity_score / 2 * 50 : 
         (props.inattentive_severity_score > 2.5 ? 75 + (props.inattentive_severity_score - 2.5)/0.5 * 25 : 
         50 + (props.inattentive_severity_score - 2)/0.5 * 25)}%;
       right: 30px;
+      p {
+        margin-right: 10px;
+      }
     }
     &.hyperactive {
+      text-align: left;
       background: ${props => props.hyperactive_severity_score < 2 ? '#2bd96b' : 
       (props.hyperactive_severity_score > 2.5 ? '#ff5c33' : '#e6da00')};
       bottom: ${props => props.hyperactive_severity_score < 2 ? props.hyperactive_severity_score / 2 * 50 : 
         (props.hyperactive_severity_score > 2.5 ? 75 + (props.hyperactive_severity_score - 2.5)/0.5 * 25 : 
         50 + (props.hyperactive_severity_score - 2)/0.5 * 25)}%;
       left: 30px;
+      p {
+        margin-left: 10px;
+      }
     }
     p {
       font-size: 0.8em;
       span {
         display: block;
+      }
+      &.marker-name {
+        margin-top: -18px;
       }
     }
   }

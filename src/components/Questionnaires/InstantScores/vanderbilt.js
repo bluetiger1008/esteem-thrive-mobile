@@ -32,9 +32,8 @@ class Vanderbilt extends Component {
           <div className="block green">
           </div>
           <div className="marker inattentive">
-            <div className="bar">
-            </div>
-            <p>
+            <p className="marker-name">Inattentive Type</p>
+            <p className="marker-rating">
               {(inattentive_severity_score > 2 && inattentive_severity_score < 2.5) ? (
                 <span>Clinical Rating:</span>
               ) : (
@@ -44,9 +43,8 @@ class Vanderbilt extends Component {
             </p>
           </div>
           <div className="marker hyperactive">
-            <div className="bar">
-            </div>
-            <p>
+            <p className="marker-name">Hyperactive Type</p>
+            <p className="marker-rating">
               {(hyperactive_severity_score > 2 && hyperactive_severity_score < 2.5) ? (
                 <span>Clinical Rating:</span>
               ) : (

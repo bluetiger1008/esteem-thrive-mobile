@@ -29,15 +29,18 @@ class Emotional extends Component {
           <div className="block green">
           </div>
           <div className="marker raw_score">
-            <div className="bar">
-            </div>
-            <p>
+            <p className="marker-name">
+              Clinical
+            </p>
+            <p className="marker-rating">
               {(raw_score > 28) ? (
                 <span>Clinical Rating:</span>
               ) : (
                 <span>Rating:</span>
               )}
-              {raw_score} out of 70
+              {raw_score} out of 70.
+              <br/>
+              Further screening by your child's pediatrician is suggested
             </p>
           </div>
         </EmotionalBar>

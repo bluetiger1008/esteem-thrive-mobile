@@ -35,7 +35,7 @@ class InstantScores extends Component {
       }, () => {
       	console.log(this.state.instantScoresData)
 			})
-			
+
 			this.props.setAssessmentCompleted(createdAssessment.data.assessment)
     } catch(error) {
       // do something with error

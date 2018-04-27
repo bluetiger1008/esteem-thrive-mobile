@@ -46,6 +46,9 @@ const EmotionalBar = styled.div`
       span {
         display: block;
       }
+      &.marker-name {
+        margin-top: -18px;
+      }
     }
   }
 `
