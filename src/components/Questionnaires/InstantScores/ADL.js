@@ -47,56 +47,62 @@ class ADL extends Component {
 		return (
 			<ADLWrapper>
 				<div className="scores strengths">
-					<p className="title">{strengths.length} Strengths</p>
 					{ strengths.length > 0 && 
-						<OwlCarousel 
-							className="owl-theme"
-							loop margin={5} nav
-						>
-					    { strengths.map((item, idx) => {
-								return (
-									<div className="item" key={idx}>
-										<p>{item}</p>
-									</div>
-								)
-							})}
-						</OwlCarousel>
+						<div>
+							<p className="title">{strengths.length} Strengths</p>
+							<OwlCarousel 
+								className="owl-theme"
+								loop margin={5} nav
+							>
+								{ strengths.map((item, idx) => {
+									return (
+										<div className="item" key={idx}>
+											<p>{item}</p>
+										</div>
+									)
+								})}
+							</OwlCarousel>
+						</div>
 					}
 				</div>
 				
 				<div className="scores typicals">
-					<p className="title">{typicals.length} Typicals</p>
 					{ typicals.length > 0 && 
-						<OwlCarousel 
-							className="owl-theme"
-							loop margin={5} nav
-						>
-					    { typicals.map((item, idx) => {
-								return (
-									<div className="item" key={idx}>
-										<p>{item}</p>
-									</div>
-								)
-							})}
-						</OwlCarousel>
+						<div>
+							<p className="title">{typicals.length} Typicals</p>
+							<OwlCarousel 
+								className="owl-theme"
+								loop margin={5} nav
+							>
+								{ typicals.map((item, idx) => {
+									return (
+										<div className="item" key={idx}>
+											<p>{item}</p>
+										</div>
+									)
+								})}
+							</OwlCarousel>
+						</div>
 					}
 				</div>
 
 				<div className="scores needs">
-					<p className="title">{needs.length} Needs</p>
 					{ needs.length > 0 && 
-						<OwlCarousel 
-							className="owl-theme"
-							loop margin={5} nav
-						>
-					    { needs.map((item, idx) => {
-								return (
-									<div className="item" key={idx}>
-										<p>{item}</p>
-									</div>
-								)
-							})}
-						</OwlCarousel>
+						<div>
+							<p className="title">{needs.length} Needs</p>
+							<OwlCarousel 
+								className="owl-theme"
+								loop margin={5} nav
+							>
+								{ needs.map((item, idx) => {
+									return (
+										<div className="item" key={idx}>
+											<p>{item}</p>
+										</div>
+									)
+								})}
+							</OwlCarousel>
+						</div>
 					}
 				</div>
 			</ADLWrapper>
