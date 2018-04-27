@@ -9,7 +9,7 @@ import QuestionnaireHeader from './common/questionnaireHeader'
 import QuestionResponsesWrapper from './responses.style'
 import appActions from '../../redux/app/actions'
 
-const { completed_questionnaires, reset_questionnaires, edit_questionnaire } = appActions
+const { submit_responses, reset_questionnaires, edit_questionnaire } = appActions
 
 class QuestionResponses extends Component {
   submitResponses = () => {
@@ -21,7 +21,9 @@ class QuestionResponses extends Component {
       questionnaire_responses: questionnaire_responses.ids
     }
 
-    this.props.completed_questionnaires(assessmentData)
+    console.log('submit', assessmentData)
+
+    this.props.submit_responses(assessmentData)
   }
 
   resetQuestionnaire = () => {
@@ -33,7 +35,7 @@ class QuestionResponses extends Component {
   }
 
   render() {
-    const { questionnaires, current_questionnaire_step, questionnaire_responses, responseSubmitting } = this.props
+    const { questionnaires, current_questionnaire_step, questionnaire_responses } = this.props
 
     return (
       <QuestionResponsesWrapper>
@@ -76,8 +78,7 @@ class QuestionResponses extends Component {
               <button className="btn-reset" onClick={this.resetQuestionnaire}>
                 Reset Questionnaire
               </button>
-              <button className="btn-submit" onClick={this.submitResponses} disabled={responseSubmitting}>
-                {responseSubmitting === true && <FontAwesome name="spinner" spin />}
+              <button className="btn-submit" onClick={this.submitResponses}>
                 Submit Responses
               </button>
             </Div>
@@ -92,5 +93,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { completed_questionnaires, reset_questionnaires, edit_questionnaire }
+  { submit_responses, reset_questionnaires, edit_questionnaire }
 )(QuestionResponses)

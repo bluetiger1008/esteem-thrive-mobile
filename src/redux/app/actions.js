@@ -1,4 +1,4 @@
-const appActons = {
+const appActions = {
   SELECT_CHILDREN: 'SELECT_CHILDREN',
   GET_CHILDREN: 'GET_CHILDREN',
   GET_CHILDREN_SUCCESS: 'GET_CHILDREN_SUCCESS',
@@ -23,31 +23,33 @@ const appActons = {
   RESET_QUESTIONNAIRES: 'RESET_QUESTIONNAIRES',
   EDIT_QUESTIONNAIRE: 'EDIT_QUESTIONNAIRE',
   CHANGE_ANSWER: 'CHANGE_ANSWER',
-  COMPLETED_QUESTIONNAIRES: 'COMPLETED_QUESTIONNAIRES',
+  
+  SUBMIT_RESPONSES: 'SUBMIT_RESPONSES',
   COMPLETED_QUESTIONNAIRES_SUCCESS: 'COMPLETED_QUESTIONNAIRES_SUCCESS',
+  SET_ASSESSMENT_COMPLETED: 'SET_ASSESSMENT_COMPLETED',
 
   CONTINUE_ASSESSMENTS: 'CONTINUE_ASSESSMENTS',
 
   select_children: children => ({
-    type: appActons.SELECT_CHILDREN,
+    type: appActions.SELECT_CHILDREN,
     children
   }),
 
   get_children: () => ({
-    type: appActons.GET_CHILDREN
+    type: appActions.GET_CHILDREN
   }),
 
   get_assessments: () => ({
-    type: appActons.GET_ASSESSMENTS_REQUEST
+    type: appActions.GET_ASSESSMENTS_REQUEST
   }),
 
   select_assessment: assessment => ({
-    type: appActons.SELECT_ASSESSMENT,
+    type: appActions.SELECT_ASSESSMENT,
     assessment
   }),
 
   select_answer: (question_response, question) => ({
-    type: appActons.SELECT_ANSWER,
+    type: appActions.SELECT_ANSWER,
     payload: {
       question_response,
       question
@@ -55,7 +57,7 @@ const appActons = {
   }),
 
   select_last_answer: (question_response, question) => ({
-    type: appActons.SELECT_LAST_ANSWER,
+    type: appActions.SELECT_LAST_ANSWER,
     payload: {
       question_response,
       question
@@ -63,34 +65,39 @@ const appActons = {
   }),
 
   go_previous_question: () => ({
-    type: appActons.PREVIOUS_QUESTION
+    type: appActions.PREVIOUS_QUESTION
   }),
 
   reset_questionnaires: () => ({
-    type: appActons.RESET_QUESTIONNAIRES
+    type: appActions.RESET_QUESTIONNAIRES
   }),
 
   edit_questionnaire: questionnaire_id => ({
-    type: appActons.EDIT_QUESTIONNAIRE,
+    type: appActions.EDIT_QUESTIONNAIRE,
     questionnaire_id
   }),
 
   change_answer: (answer, selectedQuestionnaire) => ({
-    type: appActons.CHANGE_ANSWER,
+    type: appActions.CHANGE_ANSWER,
     payload: {
       answer,
       selectedQuestionnaire
     }
   }),
 
-  completed_questionnaires: assessmentData => ({
-    type: appActons.COMPLETED_QUESTIONNAIRES,
+  submit_responses: assessmentData => ({
+    type: appActions.SUBMIT_RESPONSES,
+    assessmentData
+  }),
+
+  setAssessmentCompleted: (assessmentData) => ({
+    type: appActions.SET_ASSESSMENT_COMPLETED,
     assessmentData
   }),
 
   continue_assessments: () => ({
-    type: appActons.CONTINUE_ASSESSMENTS
+    type: appActions.CONTINUE_ASSESSMENTS
   })
 }
 
-export default appActons
+export default appActions

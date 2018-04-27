@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import {
   createAssessmentAPI
 } from '../../../helpers/apis'
 import QuestionnaireHeader from '../common/questionnaireHeader'
-import InstantScoresWrapper from './index.style'
+import { InstantScoresWrapper } from './index.style'
 import appActions from '../../../redux/app/actions'
 import DessaParent from './dessaParent'
-import SelfSufficiency from './selfSufficiency'
+import MedSideEffect from './medSideEffect'
+import ADL from './ADL'
+import Vanderbilt from './vanderbilt'
+import Emotional from './emotional'
+import Header from '../../Header/header'
 
-const { completed_questionnaires } = appActions
+const { setAssessmentCompleted } = appActions
 
 const data = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -27,28 +32,6 @@ const data = {
   ]
 };
 
-const responsesData = {
-	"child_id":100,
-	"questionnaire_id":1,
-	"questionnaire_responses":[
-		{"question_response_id":6,"question_id":1},
-		{"question_response_id":2,"question_id":2},
-		{"question_response_id":2,"question_id":3},
-		{"question_response_id":4,"question_id":4},
-		{"question_response_id":4,"question_id":5},
-		{"question_response_id":5,"question_id":6},
-		{"question_response_id":7,"question_id":7},
-		{"question_response_id":7,"question_id":8},
-		{"question_response_id":5,"question_id":9},
-		{"question_response_id":4,"question_id":10},
-		{"question_response_id":1,"question_id":11},
-		{"question_response_id":1,"question_id":12},
-		{"question_response_id":6,"question_id":13},
-		{"question_response_id":5,"question_id":14},
-		{"question_response_id":6,"question_id":15}
-	]
-}
-
 class InstantScores extends Component {
 	state = {
 		instantScoresData: null,
@@ -56,16 +39,19 @@ class InstantScores extends Component {
 	}
 
 	async componentDidMount() {
-    try {
-      const createdAssessment = await createAssessmentAPI(responsesData)
+		const { submittingAssessmentData, selectedChildren } = this.props;
 
+    try {
+      const createdAssessment = await createAssessmentAPI(submittingAssessmentData)
+			
       this.setState({
       	instantScoresData: createdAssessment.data.assessment,
       	questionnaireName: createdAssessment.data.assessment.questionnaire.name
       }, () => {
       	console.log(this.state.instantScoresData)
-      })
-      // do something with response
+			})
+			
+			this.props.setAssessmentCompleted(createdAssessment.data.assessment)
     } catch(error) {
       // do something with error
     }
@@ -73,28 +59,55 @@ class InstantScores extends Component {
 
 	render() {
 		const { instantScoresData, questionnaireName } = this.state
+		const { questionnaires, current_questionnaire_step } = this.props
 
 		return (
 			<InstantScoresWrapper>
-				{/*<QuestionnaireHeader
-          questionnaires={questionnaires}
-          current_questionnaire_step={current_questionnaire_step}
-        />*/}
-        
+				<Header />
+        {questionnaires && (
+					<div>
+						<QuestionnaireHeader
+							questionnaires={questionnaires}
+							current_questionnaire_step={current_questionnaire_step}
+						/>
 
-				<h1>InstantScores</h1>
-
-				{ questionnaireName !== null && (
-						<div>
-							{ questionnaireName === "DESSA - Parent" &&
-								<DessaParent scoreData={instantScoresData} />
-							}
-							{ questionnaireName === "Self Sufficiency" &&
-								<SelfSufficiency scoreData={instantScoresData} />
+						<div className="content">
+							{ questionnaireName !== null ? (
+									<div>
+										<p className="title">Good Job! You just completed the {questionnaireName}</p>
+										{ questionnaireName === 'DESSA - Parent' &&
+											<DessaParent scoreData={instantScoresData} />
+										}
+										{ (questionnaireName === 'Self Sufficiency' || questionnaireName === 'Sleep ADL' || questionnaireName === 'Academic Performance' || questionnaireName === 'Self Control') &&
+											<ADL scoreData={instantScoresData}/>
+										}
+										{ questionnaireName === 'Medication Side Effects' &&
+											<MedSideEffect scoreData={instantScoresData} />
+										}
+										{ questionnaireName === 'Vanderbilt - Parent'  && 
+											<Vanderbilt scoreData={instantScoresData} />
+										}
+										{ questionnaireName === 'Emotional Assessment' &&
+											<Emotional scoreData={instantScoresData} />
+										}
+									</div>
+								) : (
+									<div className="loading">
+										<p>Loading...</p>
+									</div>
+								)
 							}
 						</div>
-					)
-				}
+
+						{ questionnaireName !== null && (
+							<div className="footer">
+								<Link to="/questionnaires/completed" disabled={ questionnaireName === null }>
+									Continue
+								</Link>
+							</div>
+						)}
+					</div>
+				)}
 			</InstantScoresWrapper>
 		);
 	}
@@ -104,5 +117,5 @@ export default connect(
   state => ({
     ...state.App.toJS()
   }),
-  { completed_questionnaires }
+  { setAssessmentCompleted }
 )(InstantScores)

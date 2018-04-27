@@ -91,18 +91,21 @@ export function* changeAnswer() {
   })
 }
 
-export function* completedQuestionnaires() {
-  yield takeEvery('COMPLETED_QUESTIONNAIRES', function*(payload) {
+export function* submitResponses() {
+  yield takeEvery('SUBMIT_RESPONSES', function*(payload) {
     let createAssessment
+    console.log('submit responses', payload.assessmentData)
+
     try {
       createAssessment = yield call(createAssessmentAPI, payload.assessmentData)
 
+      // console.log(JSON.stringify(createAssessment.data.assessment));
       yield put({
         type: actions.COMPLETED_QUESTIONNAIRES_SUCCESS,
-        assessment: payload.assessmentData
+        assessmentData: payload.assessmentData
       })
 
-      yield put(push('/questionnaires/completed'))
+      yield put(push('/questionnaires/instant_scores'))
     } catch (error) {}
   })
 }
@@ -129,7 +132,7 @@ export default function* rootSaga() {
     fork(resetQuestionnaires),
     fork(editQuestionnaire),
     fork(changeAnswer),
-    fork(completedQuestionnaires),
+    fork(submitResponses),
     fork(continueAssessment)
   ])
 }
