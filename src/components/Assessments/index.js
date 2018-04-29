@@ -35,7 +35,9 @@ class Assessments extends Component {
   }
 
   render() {
-    const { selectedChildren, completedQuestionnairesLength } = this.props
+    const { selectedChildren, finishedChildren, completedQuestionnairesLength } = this.props
+
+    console.log(selectedChildren, finishedChildren)
 
     return (
       <AssessmentsWrapper>
@@ -44,12 +46,16 @@ class Assessments extends Component {
           {selectedChildren ? (
             selectedChildren.questionnaires.length > 0 ? (
               <div className="assessments">
-                {selectedChildren.questionnaires.length === completedQuestionnairesLength && (
-                  <h3>
-                    Great Job! <br />
-                    You've completed all due assessments.
-                  </h3>
-                )}
+                { finishedChildren &&
+                  <div>
+                    { selectedChildren.id === finishedChildren.id && selectedChildren.questionnaires.length === completedQuestionnairesLength && (
+                      <h3>
+                        Great Job! <br />
+                        You've completed all due assessments.
+                      </h3>
+                    )}
+                  </div>
+                }
                 <ul>
                   {selectedChildren.questionnaires.map((item, index) => {
                     return (

@@ -96,8 +96,8 @@ export function* submitResponses() {
     let createAssessment
     console.log('submit responses', payload.assessmentData)
 
-    try {
-      createAssessment = yield call(createAssessmentAPI, payload.assessmentData)
+    // try {
+      // createAssessment = yield call(createAssessmentAPI, payload.assessmentData)
 
       // console.log(JSON.stringify(createAssessment.data.assessment));
       yield put({
@@ -106,7 +106,7 @@ export function* submitResponses() {
       })
 
       yield put(push('/questionnaires/instant_scores'))
-    } catch (error) {}
+    // } catch (error) {}
   })
 }
 

@@ -5,6 +5,7 @@ import _ from 'lodash'
 const initState = new Map({
   children: [],
   selectedChildren: null,
+  finishedChildren: null,
   assessments: [],
   selectedQuestionnaireID: null,
   questionnaires: null,
@@ -21,7 +22,8 @@ const initState = new Map({
 export default function appReducer(state = initState, action) {
   switch (action.type) {
     case actions.SELECT_CHILDREN:
-      return state.set('selectedChildren', action.children).set('current_questionnaire_step', 1)
+      return state.set('selectedChildren', action.children)
+        .set('current_questionnaire_step', 1)
 
     case actions.GET_CHILDREN_SUCCESS:
       return state.set('children', action.children)
@@ -101,6 +103,7 @@ export default function appReducer(state = initState, action) {
       return state
         .set('current_questionnaire_step', 1)
         .set('completedQuestionnairesLength', completedQuestionnairesLength)
+        .set('finishedChildren', state.toJS().selectedChildren)
     
     default:
       return state
