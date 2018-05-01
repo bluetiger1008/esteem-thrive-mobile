@@ -34,7 +34,7 @@ const QuestionnairesWrapper = styled.div`
       }
     }
     .question {
-      padding-top: 30px;
+      padding: 30px 50px 0;
     }
     .question-navigator {
       position: fixed;

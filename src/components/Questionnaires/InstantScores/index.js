@@ -63,12 +63,15 @@ class InstantScores extends Component {
 						<div className="content">
 							{ questionnaireName !== null ? (
 									<div>
-										<p className="title">Good Job! You just completed the {questionnaireName}</p>
+										{/* <p className="title">Good Job! You just completed the {questionnaireName}</p> */}
 										{ questionnaireName === 'DESSA - Parent' &&
 											<DessaParent scoreData={instantScoresData} />
 										}
 										{ (questionnaireName === 'Self Sufficiency' || questionnaireName === 'Sleep ADL' || questionnaireName === 'Academic Performance' || questionnaireName === 'Self Control') &&
-											<ADL scoreData={instantScoresData}/>
+											<div>
+												<p className="title">Here are the results from your assessment. Visit the parent dashboard on a tablet or other larger screen device</p>
+												<ADL scoreData={instantScoresData}/>
+											</div>
 										}
 										{ questionnaireName === 'Medication Side Effects' &&
 											<MedSideEffect scoreData={instantScoresData} />

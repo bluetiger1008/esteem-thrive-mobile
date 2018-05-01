@@ -63,7 +63,7 @@ class Questionnaires extends Component {
         <Header />
         {questionnaires && (
           <div>
-            <Modal isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="startModal">
+            <Modal isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="modal">
               <div className="modal-header">
                 <p>{questionnaires.title}</p>
               </div>

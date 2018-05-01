@@ -30,7 +30,7 @@ class Children extends Component {
       <ChildrenWrapper>
         <Div className="header" direction="column" justifyContent="flex-end">
           <h2>Notifications App</h2>
-          <p>Designed to provide easy access to notifications, ask an expert and mom on board.</p>
+          <p>Designed to provide easy access to tasks to be completed by parent.</p>
           <img src={logo} alt="logo" className="logo" />
         </Div>
         <Div className="content" direction="column" alignItems="center" justifyContent="flex-start">

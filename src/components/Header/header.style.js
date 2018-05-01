@@ -12,12 +12,6 @@ const HeaderWrapper = styled.div`
       color: black;
       font-size: 30px;
     }
-    .logo {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 80px;
-    }
     .btn-back {
       position: absolute;
       color: black;

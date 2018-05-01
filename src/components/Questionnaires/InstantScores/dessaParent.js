@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {Bar} from 'react-chartjs-2'
 import { Chart } from 'react-chartjs-2'
 import _ from 'lodash'
@@ -94,7 +95,8 @@ class DessaParent extends Component {
 
 	render() {
 		const { chart, overall_score } = this.state
-		
+		const { selectedChildren } = this.props
+
 		const options = {
 			maintainAspectRatio: false,
       legend: false,
@@ -130,7 +132,7 @@ class DessaParent extends Component {
 
 		return (
 			<DessaParentWrappper>
-				<p className="info">Your responses indicate that Slowpoke falls in the <strong>upper { 100 - overall_score }%</strong> of children around their age.</p>
+				<p className="info">Your responses indicate that { selectedChildren.name } in the <strong>{overall_score > 50 ? 'upper' : 'lower'} { overall_score }%</strong> of children around their age.</p>
 				<div className="percentile-bar">
 					{ this.renderPercentileBar(overall_score) }
 				</div>
@@ -146,4 +148,9 @@ class DessaParent extends Component {
 	}
 }
 
-export default DessaParent
+export default connect(
+  state => ({
+    ...state.App.toJS()
+  }),
+  {}
+)(DessaParent)

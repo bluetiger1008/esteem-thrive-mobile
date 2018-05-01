@@ -49,10 +49,13 @@ class Assessments extends Component {
                 { finishedChildren &&
                   <div>
                     { selectedChildren.id === finishedChildren.id && selectedChildren.questionnaires.length === completedQuestionnairesLength && (
-                      <h3>
-                        Great Job! <br />
-                        You've completed all due assessments.
-                      </h3>
+                      <div>
+                        <h3>
+                          Great Job! <br />
+                          You've completed all due assessments.
+                        </h3>
+                        <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time</p>
+                      </div>
                     )}
                   </div>
                 }
@@ -77,10 +80,13 @@ class Assessments extends Component {
                 </ul>
               </div>
             ) : (
-              <h3>
-                Great Job! <br />
-                You've completed all due assessments.
-              </h3>
+              <div>
+                <h3>
+                  Great Job! <br />
+                  You've completed all due assessments.
+                </h3>
+                <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time</p>
+              </div>
             )
           ) : (
             <div className="error">
