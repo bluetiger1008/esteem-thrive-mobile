@@ -88,6 +88,9 @@ const MainBar = styled.div`
       &.marker-name {
         margin-top: -18px;
       }
+      &.marker-rating {
+        margin-top: -2px;
+      }
     }
   }
 `
