@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 
 import { store, history } from './redux/store'
 import PublicRoutes from './router'
-import './assets/fonts/inter_ui/inter-ui.css'
 import './App.css'
 
 if (localStorage.getItem('last_visit') !== null) {

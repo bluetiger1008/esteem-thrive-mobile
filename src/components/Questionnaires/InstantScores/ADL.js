@@ -42,7 +42,7 @@ class ADL extends Component {
 	render() {
 		const { strengths, typicals, needs } = this.state
 		const options = {
-			loop: true,
+			loop: false,
 			margin: 5,
 			nav: true,
 			navText: ["<img src='/left.png'/>", "<img src='/right.png'/>"]
