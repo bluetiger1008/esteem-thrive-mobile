@@ -4,19 +4,19 @@ const HeaderWrapper = styled.div`
   .header {
     border-bottom: 1px solid grey;
     padding: 0 30px;
-    height: 100px;
+    height: 80px;
     text-align: center;
     position: relative;
     p {
       margin: 0;
       color: black;
-      font-size: 30px;
+      font-size: 20px;
     }
     .btn-back {
       position: absolute;
       color: black;
       left: 30px;
-      top: 35px;
+      top: 25px;
     }
   }
 `

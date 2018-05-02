@@ -85,7 +85,7 @@ class InstantScores extends Component {
 									</div>
 								) : (
 									<div className="loading">
-										<p>Loading...</p>
+										<p>Generating score...</p>
 									</div>
 								)
 							}

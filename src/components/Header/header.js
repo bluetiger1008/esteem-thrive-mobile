@@ -57,7 +57,7 @@ class Header extends Component {
             <p>Warning</p>
           </div>
           <div className="modal-content">
-            <p>You will lose progress <br/> Are you ok to continue?</p>
+            <p>Your responses for this assessment will be lost. <br/> Would you like to continue?</p>
           </div>
           <div className="modal-footer">
             <div className="lose-modal-buttons">

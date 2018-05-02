@@ -20,7 +20,7 @@ class Emotional extends Component {
 
     return (
       <EmotionalWrapper>
-        <p className="info">You've identified the following regarding your child's symptom serverity:</p>
+        <p className="info">You've identified the following regarding your child's symptom severity:</p>
         <EmotionalBar raw_score={raw_score}>
           <div className="block red">
           </div>
