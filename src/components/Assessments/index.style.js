@@ -21,6 +21,9 @@ const AssessmentsWrapper = styled.div`
   }
   .content {
     overflow: auto;
+    .completed-text {
+      padding: 0 20px;
+    }
     h3 {
       line-height: 1.2em;
       width: 100%;

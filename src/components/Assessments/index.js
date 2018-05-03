@@ -49,12 +49,13 @@ class Assessments extends Component {
                 { finishedChildren &&
                   <div>
                     { selectedChildren.id === finishedChildren.id && selectedChildren.questionnaires.length === completedQuestionnairesLength && (
-                      <div>
+                      <div className="completed-text">
                         <h3>
                           Great Job! <br />
                           You've completed all due assessments.
                         </h3>
-                        <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.</p>
+                        <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/>
+                        Visit esteemthrive.com on a tablet or larger format screen to explore your child’s dashboard and interventions.</p>
                       </div>
                     )}
                   </div>
@@ -80,12 +81,13 @@ class Assessments extends Component {
                 </ul>
               </div>
             ) : (
-              <div>
+              <div className="completed-text">
                 <h3>
                   Great Job! <br />
                   You've completed all due assessments.
                 </h3>
-                <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.</p>
+                <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/>
+                Visit esteemthrive.com on a tablet or larger format screen to explore your child’s dashboard and interventions.</p>
               </div>
             )
           ) : (
