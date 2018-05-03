@@ -96,7 +96,7 @@ class DessaParent extends Component {
 	render() {
 		const { chart, overall_score } = this.state
 		const { selectedChildren } = this.props
-		const percentage = overall_score/225 * 100
+		const percentage = Math.trunc( overall_score/225 * 100)
 
 		const options = {
 			maintainAspectRatio: false,
@@ -133,7 +133,7 @@ class DessaParent extends Component {
 
 		return (
 			<DessaParentWrappper>
-				<p className="info">Your responses indicate that { selectedChildren.name } in the <strong>{percentage > 50 ? 'upper' : 'lower'} { overall_score }%</strong> of children around their age.</p>
+				<p className="info">Your responses indicate that { selectedChildren.name } in the <strong>{percentage > 50 ? 'upper' : 'lower'} { percentage }%</strong> of children around their age.</p>
 				<div className="percentile-bar">
 					{ this.renderPercentileBar(overall_score, percentage) }
 				</div>

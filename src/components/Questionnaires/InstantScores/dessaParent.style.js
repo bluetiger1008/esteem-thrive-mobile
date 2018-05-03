@@ -31,7 +31,7 @@ const PercentileBar = styled.div`
 		left: ${props => props.score / 225 * 100}%;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		.bar {
 	    height: 40px;
 	    width: 3px;
