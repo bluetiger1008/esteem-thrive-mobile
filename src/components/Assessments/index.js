@@ -54,7 +54,7 @@ class Assessments extends Component {
                           Great Job! <br />
                           You've completed all due assessments.
                         </h3>
-                        <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/>
+                        <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/><br/>
                         Visit esteemthrive.com on a tablet or larger format screen to explore your child’s dashboard and interventions.</p>
                       </div>
                     )}
@@ -86,7 +86,7 @@ class Assessments extends Component {
                   Great Job! <br />
                   You've completed all due assessments.
                 </h3>
-                <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/>
+                <p>We’ll notify you when it’s time to complete more assessments so that you can track your child’s progress over time.<br/><br/>
                 Visit esteemthrive.com on a tablet or larger format screen to explore your child’s dashboard and interventions.</p>
               </div>
             )
