@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
 const InstantScoresWrapper = styled.div`
+  height: 100%;
+  .instant-content {
+    height: calc(100% - 81px);
+    position: relative;
+  }
   .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 30px;
@@ -20,6 +25,8 @@ const InstantScoresWrapper = styled.div`
   }
   .content {
     padding: 20px 20px 40px;
+    height: calc(100% - 130px);
+    overflow-y: auto;
     .loading {
       p {
         margin-top: 150px;

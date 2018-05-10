@@ -1,9 +1,16 @@
 import styled from 'styled-components'
 
 const QuestionResponsesWrapper = styled.div`
+  height: 100%;
+  .responses-content {
+    height: calc(100% - 81px);
+    position: relative;
+  }
   .content {
     padding: 20px;
     text-align: left;
+    height: calc(100% - 110px);
+    overflow-y: scroll;
 
     p {
       margin: 0;
@@ -55,7 +62,7 @@ const QuestionResponsesWrapper = styled.div`
   }
 
   .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     width: 100%;
 

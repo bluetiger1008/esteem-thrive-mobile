@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import bgLogin from '../../assets/images/login.png'
 
 const LoginWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   .header {
     height: 100px;
     background-image: linear-gradient(-225deg, #243b55, #141e30);
@@ -13,7 +13,7 @@ const LoginWrapper = styled.div`
     }
   }
   .authContainer {
-    height: calc(100vh - 100px);
+    height: calc(100% - 100px);
     background-image: url(${bgLogin});
     background-size: cover;
     background-position: center;

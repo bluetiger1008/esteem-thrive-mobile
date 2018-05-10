@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 const QuestionnairesWrapper = styled.div`
+  height: 100%;
+  position: relative;
   .questionnaire-content {
     padding-bottom: 50px;
-    position: relative;
     h3 {
       margin-top: 0;
     }
@@ -37,7 +38,7 @@ const QuestionnairesWrapper = styled.div`
       padding: 30px 50px 0;
     }
     .question-navigator {
-      position: fixed;
+      position: absolute;
       bottom: 0;
       width: 100%;
 

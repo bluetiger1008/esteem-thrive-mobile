@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import bgMountain from '../../assets/images/mountain.png'
 
 const ChildrenWraper = styled.div`
+  height: 100%;
   .header {
     border-bottom: 1px solid grey;
     padding: 0 30px;
@@ -23,13 +24,14 @@ const ChildrenWraper = styled.div`
     }
   }
   .content {
-    height: calc(100vh - 151px);
+    height: calc(100% - 151px);
     padding: 20px 0 0 0;
     width: 100%;
     background-image: url(${bgMountain});
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: bottom;
+    position: relative;
     button {
       &.btn-notify {
         width: 200px;
@@ -69,7 +71,7 @@ const ChildrenWraper = styled.div`
       line-height: 50px;
       outline: none;
       border: none;
-      position: fixed;
+      position: absolute;
       bottom: 20px;
       cursor: pointer;
       font-family: 'Inter UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;

@@ -41,7 +41,7 @@ class QuestionResponses extends Component {
       <QuestionResponsesWrapper>
         <Header />
         {questionnaires && (
-          <div>
+          <div className="responses-content">
             <QuestionnaireHeader
               questionnaires={questionnaires}
               current_questionnaire_step={current_questionnaire_step}

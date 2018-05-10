@@ -32,7 +32,7 @@ const RestrictedRoute = ({ component: Component, isLoggedIn, ...rest }) => (
 const PublicRoutes = ({ history, isLoggedIn }) => {
   return (
     <Router history={history}>
-      <div>
+      <div className="app-content">
         <Route exact path={'/'} component={Login} />
         <RestrictedRoute path="/children" component={Children} isLoggedIn={isLoggedIn} />
         <RestrictedRoute path="/assessments" component={Assessments} isLoggedIn={isLoggedIn} />

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const AssessmentsWrapper = styled.div`
+  height: 100%;
   .header {
     border-bottom: 1px solid grey;
     padding: 0 30px;
@@ -20,7 +21,8 @@ const AssessmentsWrapper = styled.div`
     }
   }
   .content {
-    overflow: auto;
+    overflow-y: auto;
+    height: calc(100% - 81px);
     .completed-text {
       padding: 0 20px;
     }

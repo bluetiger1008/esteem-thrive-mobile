@@ -54,7 +54,7 @@ class InstantScores extends Component {
 			<InstantScoresWrapper>
 				<Header />
         {questionnaires && (
-					<div>
+					<div className="instant-content">
 						<QuestionnaireHeader
 							questionnaires={questionnaires}
 							current_questionnaire_step={current_questionnaire_step}
