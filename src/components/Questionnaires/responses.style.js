@@ -10,7 +10,7 @@ const QuestionResponsesWrapper = styled.div`
     padding: 20px;
     text-align: left;
     height: calc(100% - 110px);
-    overflow-y: scroll;
+    overflow-y: auto;
 
     p {
       margin: 0;

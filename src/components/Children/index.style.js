@@ -32,6 +32,11 @@ const ChildrenWraper = styled.div`
     background-repeat: no-repeat;
     background-position: bottom;
     position: relative;
+    .childrens {
+      padding-top: 10px;
+      height: calc(100% - 90px);
+      overflow-y: auto;
+    }
     button {
       &.btn-notify {
         width: 200px;

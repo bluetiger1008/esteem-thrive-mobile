@@ -34,13 +34,15 @@ class Children extends Component {
           <img src={logo} alt="logo" className="logo" />
         </Div>
         <Div className="content" direction="column" alignItems="center" justifyContent="flex-start">
-          {children.map((item, index) => (
-            <button className="btn-notify" key={index} onClick={this.onSelectChildren.bind(undefined, item)}>
-              {item.name}
-              <p className="due-notification">{item.outstanding_assessments_size}</p>
-            </button>
-          ))}
-
+          <div className="childrens">
+            {children.map((item, index) => (
+              <button className="btn-notify" key={index} onClick={this.onSelectChildren.bind(undefined, item)}>
+                {item.name}
+                <p className="due-notification">{item.outstanding_assessments_size}</p>
+              </button>
+            ))}
+          </div>
+          
           <a className="btn-logout" onClick={this.logout}>
             Logout
           </a>
